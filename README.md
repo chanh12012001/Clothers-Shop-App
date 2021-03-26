@@ -1,5 +1,7 @@
 # Clothes-Shop-App
 
+![clothes](https://user-images.githubusercontent.com/73011753/112593256-d30c2280-8e39-11eb-8f7f-75cc67353ce0.png)
+
 ### GIỚI THIỆU
 Mua sắm trang phục trực tuyến là một nhu cầu phổ biến ngày nay. Ứng dụng này sẽ giúp bạn tìm thấy những món đồ yêu thích từ quần áo, dày dép, trang sức, mỹ phẩm.. nhanh chóng và tiện lợi. Chỉ với một ngón tay, bạn sẽ sở hữu các món đồ yêu thích phục vụ nhu cầu làm đẹp của bản thân 
 
@@ -15,5 +17,3 @@ Mua sắm trang phục trực tuyến là một nhu cầu phổ biến ngày nay
 - Thanh toán: thanh toán qua ví điện tử như momo, airpay,… hay thanh toán trực tuyến qua tài khoản ngân hàng được liên kết
 
 - Đơn hàng và tình trạng đơn hàng
-
-![clothes](https://user-images.githubusercontent.com/73011753/112593256-d30c2280-8e39-11eb-8f7f-75cc67353ce0.png)
