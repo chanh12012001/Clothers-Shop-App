@@ -1,3 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ClothesShopApp</string>
+    <string name="app_name">mShop</string>
+    <string name="text_todo">TODO</string>
+    <string name="lbl_forgot">Forgot ?</string>
+    <string name="lbl_sign_in">Sign In</string>
+    <string name="lbl_sign_up">Sign Up</string>
+    <string name="lbl_sign_in_with">Sign In with</string>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+
+    <string name="lbl_google">Google</string>
+    <string name="lbl_facebook">Facebook</string>
+
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_last_name">Last name</string>
+
+    <string name="err_msg_enter_first_name">Please enter first name.</string>
+    <string name="err_msg_enter_last_name">Please enter last name.</string>
+    <string name="err_msg_enter_email">Please enter email.</string>
+    <string name="err_msg_enter_password">Please enter password.</string>
+    <string name="err_msg_enter_confirm_password">Please enter confirm password.</string>
+    <string name="err_msg_enter_password_and_err_msg_enter_confirm_password_mismatch">Password and confirm password does not match.</string>
+    <string name="check_information_sign_up">Register successful.</string>
+    <string name="check_information_sign_in">Login successful.</string>
+    <string name="forgot_password_title_description">Enter username and e-mail address, we will send you a email to reset your password</string>
+    <string name="lbl_forgot_password">Forgot Password</string>
+    <string name="lbl_Submit">SUBMIT</string>
+    <string name="register_success">You are registered successfully</string>
+
+    <string name="lbl_loading">Loading</string>
+
+    <string-array name="language">
+        <item>Vietnamese</item>
+    </string-array>
 </resources>

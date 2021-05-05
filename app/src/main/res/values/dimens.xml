@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_standard">@dimen/_8sdp</dimen>
+    <dimen name="spacing_standard_new">@dimen/_16sdp</dimen>
+    <dimen name="spacing_large">@dimen/_24sdp</dimen>
+    <dimen name="spacing_xlarge">@dimen/_32sdp</dimen>
+    <dimen name="spacing_xxlarge">@dimen/_40sdp</dimen>
+
+    <dimen name="splash_img">@dimen/_70sdp</dimen>
+
+    <dimen name="font_size_small">14sp</dimen>
+    <dimen name="font_size_normal">18sp</dimen>
+    <dimen name="font_size_medium">16sp</dimen>
+    <dimen name="font_size_splash">40sp</dimen>
+
+    <dimen name="spacing_middle">@dimen/_10sdp</dimen>
+    <dimen name="spacing_smlarge">@dimen/_18sdp</dimen>
+    <dimen name="spacing_xxxlarge">@dimen/_40sdp</dimen>
+    <dimen name="stroke_width">@dimen/_1sdp</dimen>
+
+    <dimen name="spacing_control_half">@dimen/_2sdp</dimen>
+    <dimen name="spacing_control">@dimen/_4sdp</dimen>
+    <dimen name="spacing_mxlarge">@dimen/_25sdp</dimen>
+    
+    <dimen name="progress_bar_size">50dp</dimen>
+
+</resources>

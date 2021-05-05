@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">mShop</string>
+    <string name="text_todo">LÀM</string>
+    <string name="lbl_forgot">Quên mật khẩu?</string>
+    <string name="lbl_sign_in">Đăng nhập</string>
+    <string name="lbl_sign_up">Đăng kí</string>
+    <string name="lbl_sign_in_with">Đăng nhập với</string>
+
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Mật khẩu</string>
+    <string name="hint_confirm_password">Xác nhận mật khẩu</string>
+
+    <string name="hint_first_name">Tên</string>
+    <string name="hint_last_name">Họ</string>
+
+    <string name="lbl_google">Google</string>
+    <string name="lbl_facebook">Facebook</string>
+
+    <string name="err_msg_enter_first_name">Vui lòng nhập tên.</string>
+    <string name="err_msg_enter_last_name">Vui lòng nhập họ.</string>
+    <string name="err_msg_enter_email">Vui lòng nhập E-mail.</string>
+    <string name="err_msg_enter_password">Vui lòng nhập mật khẩu.</string>
+    <string name="err_msg_enter_confirm_password">Vui lòng xác nhận mật khẩu.</string>
+    <string name="err_msg_enter_password_and_err_msg_enter_confirm_password_mismatch">Mật khẩu và xác nhận không đúng.</string>
+    <string name="check_information_sign_up">Đăng kí thành công.</string>
+    <string name="check_information_sign_in">Đăng nhập thành công.</string>
+    <string name="forgot_password_title_description">Nhập tên người dùng và địa chỉ e-mail, chúng tôi sẽ gửi tới email này để đặt lại mật khẩu của bạn </string>
+    <string name="lbl_forgot_password">Quên mật khẩu</string>
+    <string name="lbl_Submit">SUBMITt</string>
+    <string name="register_success">Bạn đã đăng kí thành công</string>
+
+    <string name="lbl_loading">Đang tải</string>
+
+</resources>
