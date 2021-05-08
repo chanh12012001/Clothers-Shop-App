@@ -1,35 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">mShop</string>
-    <string name="text_todo">LÀM</string>
+    <string name="text_todo">Todo</string>
+
+    <string name="hint_first_name">Tên</string>
+    <string name="hint_last_name">Họ</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Mật khẩu</string>
+    <string name="hint_confirm_password">Xác nhận mật khẩu</string>
     <string name="lbl_forgot">Quên mật khẩu?</string>
     <string name="lbl_sign_in">Đăng nhập</string>
     <string name="lbl_sign_up">Đăng kí</string>
     <string name="lbl_sign_in_with">Đăng nhập với</string>
+    <string name="lbl_loading">Đang tải</string>
+    <string name="check_email">Email không hợp lệ!</string>
+    <string name="check_confirm_password">Mật khẩu xác nhận không đúng</string>
+    <string name="check_user_password">Tài khoản hoặc mật khẩu không đúng!</string>
+    <string name="lbl_dismiss"><u>Bỏ qua</u></string>
+    <string name="lbl_forgot_password">Quên mật khẩu</string>
+    <string name="forgot_password_title_description">Nhập địa chỉ e-mail, chúng tôi sẽ gửi tới email này để đặt lại mật khẩu của bạn </string>
+    <string name="lbl_reset_pasword">Đặt lại mật khẩu</string>
+    <string name="enter_email">Vui lòng nhập mật khẩu</string>
+    <string name="sent_email_successful">Email khôi phục đã được gửi thành công! Kiểm tra hộp thư của bạn. </string>
 
-    <string name="hint_email">E-mail</string>
-    <string name="hint_password">Mật khẩu</string>
-    <string name="hint_confirm_password">Xác nhận mật khẩu</string>
+    <string name="lbl_goBack">&lt;&lt; Quay lại</string>
 
-    <string name="hint_first_name">Tên</string>
-    <string name="hint_last_name">Họ</string>
+    <string name="hint_mail_forgot_password">Email đã đăng kí</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_searching">Cài đặt</string>
+    <string name="action_notification">Thông báo</string>
+    <string name="action_shopping_cart">Giỏ hàng</string>
 
+    <string name="text_guest_user">Tài khoản khách hàng</string>
+
+    <string name="menu_profile">Hồ sơ cá nhân</string>
+    <string name="menu_myorder">Đơn hàng của tôi</string>
+    <string name="menu_wishlist">Yêu thích</string>
+    <string name="menu_setting">Cài đặt</string>
+    <string name="menu_logout">Đăng xuất</string>
+    <string name="menu_share">Chia sẻ</string>
+    <string name="menu_help">Trợ giúp</string>
+    <string name="menu_about_us">Thông tin chúng tin</string>
+
+    <string name="menu_mymall">Trung tâm mua sắm</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_mycart">Giỏ hàng của tôi</string>
+    <string name="menu_myrewards">Phần thưởng của tôi</string>
     <string name="lbl_google">Google</string>
     <string name="lbl_facebook">Facebook</string>
-
-    <string name="err_msg_enter_first_name">Vui lòng nhập tên.</string>
-    <string name="err_msg_enter_last_name">Vui lòng nhập họ.</string>
-    <string name="err_msg_enter_email">Vui lòng nhập E-mail.</string>
-    <string name="err_msg_enter_password">Vui lòng nhập mật khẩu.</string>
-    <string name="err_msg_enter_confirm_password">Vui lòng xác nhận mật khẩu.</string>
-    <string name="err_msg_enter_password_and_err_msg_enter_confirm_password_mismatch">Mật khẩu và xác nhận không đúng.</string>
-    <string name="check_information_sign_up">Đăng kí thành công.</string>
-    <string name="check_information_sign_in">Đăng nhập thành công.</string>
-    <string name="forgot_password_title_description">Nhập tên người dùng và địa chỉ e-mail, chúng tôi sẽ gửi tới email này để đặt lại mật khẩu của bạn </string>
-    <string name="lbl_forgot_password">Quên mật khẩu</string>
-    <string name="lbl_Submit">SUBMITt</string>
-    <string name="register_success">Bạn đã đăng kí thành công</string>
-
-    <string name="lbl_loading">Đang tải</string>
-
+    <string name="check_email_after_click_resetpassword">Kiểm tra hộp thư sau khi nhấn gửi đặt lại mật khẩu.</string>
 </resources>

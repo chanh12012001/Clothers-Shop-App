@@ -9,7 +9,7 @@
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp"
     app:cardUseCompatPadding="true">
-    
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +24,6 @@
 
         <ProgressBar
             android:id="@+id/progressBar"
-            android:progressDrawable="@drawable/progress_color"
             android:layout_width="@dimen/progress_bar_size"
             android:layout_height="@dimen/progress_bar_size">
         </ProgressBar>

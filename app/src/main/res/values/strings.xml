@@ -1,38 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">mShop</string>
-    <string name="text_todo">TODO</string>
+    <string name="text_todo">Todo</string>
+
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_last_name">Last name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
     <string name="lbl_forgot">Forgot ?</string>
     <string name="lbl_sign_in">Sign In</string>
     <string name="lbl_sign_up">Sign Up</string>
     <string name="lbl_sign_in_with">Sign In with</string>
+    <string name="lbl_loading">Loading</string>
+    <string name="check_email">Invalid Email!</string>
+    <string name="check_confirm_password">Password doesn\'t matched!</string>
+    <string name="check_user_password">Incorrect email or password!</string>
+    <string name="lbl_dismiss"><u>Dismiss</u></string>
+    <string name="lbl_forgot_password">Forgot Password</string>
+    <string name="forgot_password_title_description">Enter e-mail address, we will send you a email to reset your password</string>
+    <string name="lbl_reset_pasword">Reset password</string>
 
-    <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
-    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="check_email_after_click_resetpassword">Check your Inbox after clicking the button above.</string>
+    <string name="lbl_goBack">&lt;&lt; Go Back</string>
+    <string name="hint_mail_forgot_password">Email registered</string>
+    <string name="enter_email">Please enter email!</string>
+    <string name="sent_email_successful">Recovery email sent successfully! Check your Inbox.</string>
 
     <string name="lbl_google">Google</string>
     <string name="lbl_facebook">Facebook</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
 
-    <string name="hint_first_name">First Name</string>
-    <string name="hint_last_name">Last name</string>
+    <string name="action_searching">Searching</string>
+    <string name="action_notification">Notification</string>
+    <string name="action_shopping_cart">Shopping Cart</string>
 
-    <string name="err_msg_enter_first_name">Please enter first name.</string>
-    <string name="err_msg_enter_last_name">Please enter last name.</string>
-    <string name="err_msg_enter_email">Please enter email.</string>
-    <string name="err_msg_enter_password">Please enter password.</string>
-    <string name="err_msg_enter_confirm_password">Please enter confirm password.</string>
-    <string name="err_msg_enter_password_and_err_msg_enter_confirm_password_mismatch">Password and confirm password does not match.</string>
-    <string name="check_information_sign_up">Register successful.</string>
-    <string name="check_information_sign_in">Login successful.</string>
-    <string name="forgot_password_title_description">Enter username and e-mail address, we will send you a email to reset your password</string>
-    <string name="lbl_forgot_password">Forgot Password</string>
-    <string name="lbl_Submit">SUBMIT</string>
-    <string name="register_success">You are registered successfully</string>
+    <string name="text_guest_user">Guest User</string>
 
-    <string name="lbl_loading">Loading</string>
+    <string name="menu_mymall">My Mall</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_mycart">My Cart</string>
+    <string name="menu_myrewards">My rewards</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_myorder">My Orders</string>
+    <string name="menu_wishlist">Wishlist</string>
+    <string name="menu_setting">Setting</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_about_us">About us</string>
 
-    <string-array name="language">
-        <item>Vietnamese</item>
-    </string-array>
 </resources>
