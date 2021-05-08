@@ -24,7 +24,6 @@
         android:textStyle="bold">
     </ImageView>
 
-
     <ImageView
         android:id="@+id/ivGoogle"
         android:layout_width="match_parent"

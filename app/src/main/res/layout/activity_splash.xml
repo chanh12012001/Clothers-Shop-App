@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgound_color_splash"
-    tools:context=".activity.SplashActivity">
+    tools:context=".SplashActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_height="@dimen/_130sdp"
             android:layout_gravity="center"
             android:contentDescription="@string/text_todo"
-            android:src="@drawable/ic_app_icon">
+            android:src="@drawable/ic_logo_shop">
         </ImageView>
 
         <TextView
