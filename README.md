@@ -1,4 +1,4 @@
-# Clothes-Shop-App
+# Clothers-Shop-App
 
 ![clothes](https://user-images.githubusercontent.com/73011753/112593256-d30c2280-8e39-11eb-8f7f-75cc67353ce0.png)
 
