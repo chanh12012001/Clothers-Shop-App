@@ -3,8 +3,6 @@ package com.example.clothersshopapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -28,7 +26,7 @@ public class CategoryActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        catrgoryRecyclerView = findViewById(R.id.catrgory_recyclerview);
+        catrgoryRecyclerView = findViewById(R.id.category_recyclerview);
 
     }
     @Override
