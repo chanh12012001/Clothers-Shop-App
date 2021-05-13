@@ -1,5 +1,6 @@
 package com.example.clothersshopapp.ui.home;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.clothersshopapp.CategoryAdapter;
 import com.example.clothersshopapp.CategoryModel;
 import com.example.clothersshopapp.R;
+import com.example.clothersshopapp.SliderModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ public class HomeFragment extends Fragment {
     private CategoryAdapter categoryAdapter;
 
 
-    public View onStartView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -53,6 +55,21 @@ public class HomeFragment extends Fragment {
         categoryRecyclerView.setAdapter(categoryAdapter);
         categoryAdapter.notifyDataSetChanged();
 
+        ////
+        List<SliderModel>sliderModelList = new ArrayList<SliderModel>();
+
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+
+
+        ////
         return view;
     }
 }

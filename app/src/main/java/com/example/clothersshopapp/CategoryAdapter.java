@@ -32,7 +32,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         String icon = categoryModelList.get(position).getCategoryIconLink();
         String name = categoryModelList.get(position).getCategoryName();
 
-        viewHolder.setCategoryName(name);
+        viewHolder.setCategory(name);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             //todo: set categoryicons here
         }
 
-        private void setCategoryName(String name) {
+        private void setCategory(String name) {
 
             categoryName.setText(name);
             itemView.setOnClickListener(new View.OnClickListener() {

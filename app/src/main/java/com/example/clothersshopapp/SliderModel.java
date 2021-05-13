@@ -2,7 +2,7 @@ package com.example.clothersshopapp;
 
 public class SliderModel {
     private int banner;
-    public SliderModel(int banner){
+    public SliderModel(int banner, String s){
         this.banner = banner;
     }
 
