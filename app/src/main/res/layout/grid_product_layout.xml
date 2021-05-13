@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/slider_background"
+    android:elevation="3dp"
+    android:layout_margin="@dimen/spacing_standard"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_grid_product_layout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/deal_of_the_day"
+        android:textSize="@dimen/font_size_xlarge"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_view_all_grid_product_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/lbl_view_all"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintStart_toEndOf="@+id/tv_grid_product_layout_title"
+        app:layout_constraintTop_toTopOf="parent">
+    </TextView>
+
+    <GridView
+        android:id="@+id/gridview_product_layout"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_450sdp"
+        android:layout_marginTop="16dp"
+        android:numColumns="2"
+        android:verticalSpacing="@dimen/_1sdp"
+        android:horizontalSpacing="@dimen/_1sdp"
+        android:background="@color/color_grid_product_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_grid_product_layout_title" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
