@@ -1,5 +1,6 @@
 package com.example.clothersshopapp;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +56,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         }
 
         private void setCategoryName(String name) {
+
             categoryName.setText(name);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent categoryIntent = new Intent(itemView.getContext(),CategoryActivity.class);
+                    categoryIntent.putExtra("CategoryName",name);
+                    itemView.getContext().startActivity(categoryIntent);
+                }
+            });
         }
     }
 }
