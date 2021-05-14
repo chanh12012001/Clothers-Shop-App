@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clothersshopapp.CategoryAdapter;
 import com.example.clothersshopapp.CategoryModel;
+import com.example.clothersshopapp.HomePageAdapter;
 import com.example.clothersshopapp.R;
 import com.example.clothersshopapp.SliderModel;
 
@@ -69,6 +70,19 @@ public class HomeFragment extends Fragment {
         sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
 
 
+        ////
+        ////
+//        RecyclerView testing = view.findViewById(R.id.home_page_recyclerview);
+//        LinearLayoutManager testingLayoutManager = new LinearLayoutManager(getContext());
+//        testingLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        testing.setLayoutManager(testingLayoutManager);
+//
+//        List<HomePageModel> homePageModelList = new ArrayList<>();
+//        homePageModelList.add(new HomePageModel(0,sliderModelList));
+//
+//        HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
+//        testing.setAdapter(adapter);
+//        adapter.notifyDataSetChanged();
         ////
         return view;
     }

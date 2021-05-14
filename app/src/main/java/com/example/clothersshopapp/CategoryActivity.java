@@ -3,16 +3,22 @@ package com.example.clothersshopapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.clothersshopapp.ui.home.HomePageModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class CategoryActivity extends AppCompatActivity {
 
     private RecyclerView catrgoryRecyclerView;
-
+    private CategoryAdapter categoryAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +33,49 @@ public class CategoryActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         catrgoryRecyclerView = findViewById(R.id.category_recyclerview);
+        List<CategoryModel> categoryModelList = new ArrayList<CategoryModel>();
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+
+        categoryAdapter = new CategoryAdapter(categoryModelList);
+        catrgoryRecyclerView.setAdapter(categoryAdapter);
+        categoryAdapter.notifyDataSetChanged();
+
+        ////
+        List<SliderModel>sliderModelList = new ArrayList<SliderModel>();
+
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"077AE4" ));
+
+
+        ////
+        ////
+//        LinearLayoutManager testingLayoutManager = new LinearLayoutManager(this);
+//        testingLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        catrgoryRecyclerView.setLayoutManager(testingLayoutManager);
+//
+//        List<HomePageModel> homePageModelList = new ArrayList<>();
+//        homePageModelList.add(new HomePageModel(0,sliderModelList));
+//
+//        HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
+//        catrgoryRecyclerView.setAdapter(adapter);
+//        adapter.notifyDataSetChanged();
 
     }
     @Override
