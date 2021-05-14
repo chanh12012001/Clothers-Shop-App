@@ -30,17 +30,18 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/category_recyclerView"
+            <LinearLayout
+                android:id="@+id/linearLayout11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#F2F2F3"
-                android:elevation="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                tools:ignore="MissingConstraints"></androidx.recyclerview.widget.RecyclerView>
+                tools:ignore="MissingConstraints">
+
+                <include layout="@layout/category_layout"></include>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
@@ -52,7 +53,7 @@
                 android:background="@drawable/slider_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/category_recyclerView"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout11"
                 tools:ignore="MissingConstraints">
 
                 <include layout="@layout/strip_ad_layout"></include>
@@ -89,6 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints,NotSibling"></androidx.recyclerview.widget.RecyclerView>

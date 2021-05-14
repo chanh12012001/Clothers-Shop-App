@@ -43,7 +43,6 @@ public class HomeFragment extends Fragment {
     }
 
     private RecyclerView categoryRecyclerView;
-    private CategoryAdapter categoryAdapter;
 
     //////Banner slider
     private ViewPager bannerSliderViewPager;
@@ -79,22 +78,23 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         categoryRecyclerView = view .findViewById(R.id.category_recyclerView);
+
+        List<CategoryModel> categoryModelList = new ArrayList<>();
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+        categoryModelList.add(new CategoryModel("link","Home"));
+
+        CategoryAdapter categoryAdapter = new CategoryAdapter(categoryModelList);
         LinearLayoutManager layoutManager = new LinearLayoutManager((getActivity()));
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         categoryRecyclerView.setLayoutManager(layoutManager);
 
-        List<CategoryModel> categoryModelList = new ArrayList<CategoryModel>();
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-
-        categoryAdapter = new CategoryAdapter(categoryModelList);
         categoryRecyclerView.setAdapter(categoryAdapter);
         categoryAdapter.notifyDataSetChanged();
 
@@ -206,6 +206,7 @@ public class HomeFragment extends Fragment {
 
         List<HomePageModel> homePageModelList = new ArrayList<>();
         homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(categoryModelList,4));
         homePageModelList.add(new HomePageModel(1,R.drawable.img_strip_ad_1,"#000000"));
         homePageModelList.add(new HomePageModel(2,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(3,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
@@ -213,6 +214,7 @@ public class HomeFragment extends Fragment {
         homePageModelList.add(new HomePageModel(1,R.drawable.ic_wishlist,"#ffff00"));
         homePageModelList.add(new HomePageModel(0,sliderModelList));
         homePageModelList.add(new HomePageModel(1,R.drawable.img_horizontal_item1,"#ff0000"));
+        homePageModelList.add(new HomePageModel(2,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
 
         HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
         testing.setAdapter(adapter);
