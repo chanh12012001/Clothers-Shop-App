@@ -22,4 +22,9 @@
     <color name="text_goback">#C53D3B</color>
     <color name="text_send_email_error">#EC4C4A</color>
     <color name="text_send_email_successfully">#36BF3B</color>
+
+    <color name="color_grid_product_layout">#EFF2F3</color>
+    <color name="color_background_Accent">#FBFAFA</color>
+
+    <color name="color_price">#DF3634</color>
 </resources>
