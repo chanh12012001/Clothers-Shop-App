@@ -1,5 +1,6 @@
 package com.example.clothersshopapp;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         String icon = categoryModelList.get(position).getCategoryIconLink();
         String name = categoryModelList.get(position).getCategoryName();
 
-        viewHolder.setCategoryName(name);
+        viewHolder.setCategory(name, position);
     }
 
     @Override
@@ -54,8 +55,19 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             //todo: set categoryicons here
         }
 
-        private void setCategoryName(String name) {
+        private void setCategory(final String name,int position) {
             categoryName.setText(name);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (position != 0 ) {
+                        Intent categoryIntent = new Intent(itemView.getContext(), CategoryActivity.class);
+                        categoryIntent.putExtra("CategoryName", name);
+                        itemView.getContext().startActivity(categoryIntent);
+                    }
+                }
+            });
         }
     }
 }

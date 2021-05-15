@@ -1,61 +1,35 @@
 package com.example.clothersshopapp;
 
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
-public class HomeFragment extends Fragment {
-
-    public HomeFragment() {
-        // Required empty public constructor
-    }
+public class CategoryActivity extends AppCompatActivity {
 
     private RecyclerView categoryRecyclerView;
-    private RecyclerView testing;
 
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_category);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        String title = getIntent().getStringExtra("CategoryName");
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        categoryRecyclerView = view .findViewById(R.id.category_recyclerView);
-
-        List<CategoryModel> categoryModelList = new ArrayList<>();
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Shirt"));
-        categoryModelList.add(new CategoryModel("link","Trousers"));
-        categoryModelList.add(new CategoryModel("link","Sandals"));
-        categoryModelList.add(new CategoryModel("link","Hat"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-        categoryModelList.add(new CategoryModel("link","Home"));
-
-        CategoryAdapter categoryAdapter = new CategoryAdapter(categoryModelList);
-        LinearLayoutManager layoutManager = new LinearLayoutManager((getActivity()));
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        categoryRecyclerView.setLayoutManager(layoutManager);
-
-        categoryRecyclerView.setAdapter(categoryAdapter);
-        categoryAdapter.notifyDataSetChanged();
+        categoryRecyclerView = findViewById(R.id.category_recyclerview);
 
         //------------------Banner slider-----------------
         List<SliderModel> sliderModelList = new ArrayList<SliderModel>();
@@ -85,28 +59,44 @@ public class HomeFragment extends Fragment {
         //-------------------Horizontal Product Layout---------
 
         ////////////////////TESTING//////////////////////////
-        testing = view.findViewById(R.id.home_page_recyclerview);
-        LinearLayoutManager testingLayoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager testingLayoutManager = new LinearLayoutManager(this);
         testingLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        testing.setLayoutManager(testingLayoutManager);
+        categoryRecyclerView.setLayoutManager(testingLayoutManager);
 
         List<HomePageModel> homePageModelList = new ArrayList<>();
         homePageModelList.add(new HomePageModel(0,sliderModelList));
-        homePageModelList.add(new HomePageModel(categoryModelList,4));
         homePageModelList.add(new HomePageModel(1,R.drawable.img_strip_ad_1,"#000000"));
         homePageModelList.add(new HomePageModel(2,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(3,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
-        homePageModelList.add(new HomePageModel(0,sliderModelList));
         homePageModelList.add(new HomePageModel(1,R.drawable.ic_wishlist,"#ffff00"));
-        homePageModelList.add(new HomePageModel(0,sliderModelList));
-        homePageModelList.add(new HomePageModel(1,R.drawable.img_horizontal_item1,"#ff0000"));
-        homePageModelList.add(new HomePageModel(2,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
-
         HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
-        testing.setAdapter(adapter);
+        categoryRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        ////////////////////TESTING//////////////////////////
+    }
 
-        return view;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.search_icon, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        // Handle action bar item click here. The action bar will automatically handle clicks on the Home/Up button
+        //, so long as you specify a parent activity in AndroidManifest.xml
+
+        int id = item.getItemId();
+
+        //noinspection SimlifiableIfStatement
+        if (id == R.id.action_search) {
+            //todo: search
+            return true;
+        } else if (id == android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

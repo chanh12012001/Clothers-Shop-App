@@ -57,8 +57,4 @@
     <string name="deal_of_the_day">Deal of the day!</string>
     <string name="lbl_view_all"><u>View all</u></string>
 
-    <string-array name="Gender">
-        <item>Male</item>
-        <item>Femal</item>
-    </string-array>
 </resources>
