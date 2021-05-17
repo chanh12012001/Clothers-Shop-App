@@ -19,6 +19,7 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
             <TextView
+                android:id="@+id/tv_actionbar_logo1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="m-Shop"

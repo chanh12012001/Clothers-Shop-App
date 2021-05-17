@@ -27,4 +27,12 @@
     <color name="color_background_Accent">#FBFAFA</color>
 
     <color name="color_price">#DF3634</color>
+    <color name="color_wishlist">#DF3634</color>
+    <color name="color_background_rating">#45AC48</color>
+    
+    <color name="color_transparent">#00000000</color>
+
+    <color name="yellow_rating">#EDDB3E</color>
+    <color name="successGreen">#47C34B</color>
+    <color name="red_ratings">#F44336</color>
 </resources>
