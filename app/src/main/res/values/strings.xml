@@ -57,8 +57,37 @@
     <string name="deal_of_the_day">Deal of the day!</string>
     <string name="lbl_view_all"><u>View all</u></string>
 
+    <string name="lbl_vourcher">Vourcher of Shop</string>
+    <string name="lbl_apply">Apply</string>
+
+    <string name="lbl_description">
+        "    - Áo phông Polo nam trắng là sự lựa chọn hoàn hảo cho các chàng trai. Áo 3 màu trung tính rất dễ mặc, form áo vừa vặn cơ thể.
+     - Màu sắc trung tính và phối màu tuyệt vời mà rất ít áo polo có tạo nên sự dễ dàng trong việc phối đồ và tạo ra cho mình nhiều phong cách khác nhau.
+     - Áo được làm từ chất liệu cá sấu cotton co giãn với bề mặt vải mềm mại, thấm hút mồ hôi tốt tạo cảm giác thoải mái, thoáng mát cho người mặc.
+     - Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.
+     -Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form"
+    </string>
+
+    <string name="lbl_rating">Ratings</string>
+    <string name="lbl_your_ratings">Your ratings</string>
+
+    <string name="lbl_buy_now">BUY NOW</string>
+    <string name="lbl_continue">CONTINUE</string>
+    <string name="lbl_total_amount">Total amount</string>
+    <string name="lbl_offers_applied">Offers applied</string>
+    <string name="lbl_coupens_applied">Coupens applied</string>
+    <string name="lbl_product_quantity">Qty: 1</string>
+    <string name="lbl_price_detail">PRICE DETAILS</string>
+
+    <string name="lbl_provisional">Provisional</string>
+    <string name="lbl_discount">Discount</string>
+    <string name="lbl_Delivery">Delivery</string>
+    <string name="lbl_free">free</string>
+
     <string-array name="Gender">
         <item>Male</item>
         <item>Femal</item>
     </string-array>
+
+
 </resources>

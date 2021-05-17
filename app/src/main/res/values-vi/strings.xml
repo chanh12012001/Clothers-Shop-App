@@ -57,4 +57,29 @@
 
     <string name="deal_of_the_day">Giá sốc hôm nay!</string>
     <string name="lbl_view_all"><u>Xem tất cả</u></string>
+
+    <string name="lbl_vourcher">Vourcher của Shop</string>
+    <string name="lbl_apply">Áp dụng</string>
+
+    <string name="lbl_description">- Áo phông Polo nam trắng là sự lựa chọn hoàn hảo cho các chàng trai. Áo 3 màu trung tính rất dễ mặc, form áo vừa vặn cơ thể, thoải mái theo từng cử động.
+    - Màu sắc trung tính và phối màu tuyệt vời mà rất ít áo polo có tạo nên sự dễ dàng trong việc phối đồ và tạo ra cho mình nhiều phong cách khác nhau.
+    - Áo được làm từ chất liệu cá sấu cotton co giãn với bề mặt vải mềm mại, thấm hút mồ hôi tốt tạo cảm giác thoải mái, thoáng mát cho người mặc. Đây cũng là chất liệu dễ giặt sạch, giúp bạn tiết kiệm một khoảng thời gian đáng kể.
+    - Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.
+    -Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form </string>
+
+    <string name="lbl_rating">Xếp hạng</string>
+    <string name="lbl_your_ratings">Đánh giá của bạn</string>
+    <string name="lbl_buy_now">Mua ngay</string>
+    <string name="lbl_continue">Tiếp tục</string>
+    <string name="lbl_total_amount">Tổng cộng</string>
+
+    <string name="lbl_offers_applied">Đề nghị được áp dụng</string>
+    <string name="lbl_coupens_applied">Phiếu giảm giá được áp dụng</string>
+    <string name="lbl_product_quantity">SL: 1</string>
+    <string name="lbl_price_detail">Chi tiết hóa đơn</string>
+
+    <string name="lbl_provisional">Tạm tính</string>
+    <string name="lbl_discount">Giảm giá</string>
+    <string name="lbl_Delivery">Vận chuyển</string>
+    <string name="lbl_free">miễn phí</string>
 </resources>
