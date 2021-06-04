@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
 
         categoryRecyclerView = view .findViewById(R.id.category_recyclerView);
 
-        List<CategoryModel> categoryModelList = new ArrayList<>();
+        List<CategoryModel> categoryModelList = new ArrayList<CategoryModel>();
         categoryModelList.add(new CategoryModel("link","Home"));
         categoryModelList.add(new CategoryModel("link","Shirt"));
         categoryModelList.add(new CategoryModel("link","Trousers"));
