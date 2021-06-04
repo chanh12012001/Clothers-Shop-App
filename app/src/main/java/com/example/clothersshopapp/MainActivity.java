@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int HOME_FRAGMENT = 0;
     private static final int CART_FRAGMENT = 1;
+    private static final int ORDER_FRAGMENT = 2;
 
     private FrameLayout frameLayout;
     private static int currentFragment = 1;
@@ -77,11 +78,11 @@ public class MainActivity extends AppCompatActivity {
                     setFragment(new HomeFragment(),HOME_FRAGMENT);
 
                 } else if (id == R.id.nav_order) {
-
+                    gotoFragment("My Orders", new MyOrdersFragment(), ORDER_FRAGMENT);
                 } else if (id == R.id.nav_reward) {
 
                 } else if (id == R.id.nav_cart) {
-                    myCart();
+                    gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);;
                 } else if (id == R.id.nav_wishlist) {
 
                 } else if (id == R.id.nav_profile) {
@@ -129,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             //todo: notification
             return true;
         } else if (id == R.id.action_shopping_cart) {
-            myCart();
+            gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
             return true;
         } else if (id == R.id.home) {
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -140,13 +141,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void myCart() {
+    private void gotoFragment(String title, Fragment fragment, int fragmentNo) {
         actionbarLogo.setVisibility(View.GONE);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle("My Cart");
+        getSupportActionBar().setTitle(title);
         invalidateOptionsMenu();
-        setFragment(new MyCartFragment(), CART_FRAGMENT);
-        navigationView.getMenu().getItem(3).setChecked(true);
+        setFragment(fragment, fragmentNo);
+        if (fragmentNo == CART_FRAGMENT) {
+            navigationView.getMenu().getItem(3).setChecked(true);
+        }
     }
 
 
