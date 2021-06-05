@@ -1,9 +1,12 @@
 package com.example.clothersshopapp;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,6 +15,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -26,12 +30,17 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int HOME_FRAGMENT = 0;
     private static final int CART_FRAGMENT = 1;
-    private static final int ORDER_FRAGMENT = 2;
+    private static final int ORDERS_FRAGMENT = 2;
+    private static final int WISHLIST_FRAGMENT = 3;
+    private static final int REWARDS_FRAGMENT = 4;
 
     private FrameLayout frameLayout;
     private static int currentFragment = 1;
     TextView actionbarLogo;
     private NavigationView navigationView;
+
+    private Window window;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +50,12 @@ public class MainActivity extends AppCompatActivity {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         actionbarLogo = findViewById(R.id.tv_actionbar_logo1);
         navigationView = findViewById(R.id.nav_view);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
+
+//        window = getWindow();
+//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -54,17 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         frameLayout = findViewById(R.id.nav_host_fragment);
 
-        setFragment(new HomeFragment(), HOME_FRAGMENT);
-
-//         Passing each menu ID as a set of Ids because each
-//         menu should be considered as top level destinations.
-//        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home)
-//                .setDrawerLayout(drawer)
-//                .build();
-//
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-//        NavigationUI.setupWithNavController(navigationView, navController);
+        setFragment(new HomeFragment() , HOME_FRAGMENT);
 
         NavigationView.OnNavigationItemSelectedListener navListener = new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -78,13 +80,13 @@ public class MainActivity extends AppCompatActivity {
                     setFragment(new HomeFragment(),HOME_FRAGMENT);
 
                 } else if (id == R.id.nav_order) {
-                    gotoFragment("My Orders", new MyOrdersFragment(), ORDER_FRAGMENT);
+                    gotoFragment("My Orders", new MyOrdersFragment(), ORDERS_FRAGMENT);
                 } else if (id == R.id.nav_reward) {
-
+                    gotoFragment("My Rewards", new MyRewardsFragment(), REWARDS_FRAGMENT);
                 } else if (id == R.id.nav_cart) {
-                    gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);;
+                    gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
                 } else if (id == R.id.nav_wishlist) {
-
+                    gotoFragment("My Wishlist", new MyWishlistFragment(), WISHLIST_FRAGMENT);
                 } else if (id == R.id.nav_profile) {
 
                 } else if (id == R.id.nav_setting) {
@@ -100,7 +102,19 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-                drawer.closeDrawer(GravityCompat.START);
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                } else {
+                    if (currentFragment == HOME_FRAGMENT) {
+                        MainActivity.super.onBackPressed();
+                    } else {
+                        actionbarLogo.setVisibility(View.VISIBLE);
+                        invalidateOptionsMenu();
+                        setFragment(new HomeFragment(),HOME_FRAGMENT);
+                        navigationView.getMenu().getItem(0).setChecked(true);
+                    }
+                }
+
                 return true;
             }
         };
@@ -173,6 +187,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void setFragment(Fragment fragment, int fragmentNo) {
         if (fragmentNo != currentFragment) {
+//            if (fragmentNo == REWARDS_FRAGMENT) {
+//                window.setStatusBarColor(Color.parseColor("#5B04B1"));
+//                toolbar.setBackgroundColor(Color.parseColor("#5B04B1"));
+//            } else {
+//                window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+//                toolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+//            }
             currentFragment = fragmentNo;
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 

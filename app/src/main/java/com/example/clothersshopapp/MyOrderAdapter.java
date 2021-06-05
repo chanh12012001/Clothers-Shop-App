@@ -1,5 +1,6 @@
 package com.example.clothersshopapp;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -7,13 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.jetbrains.annotations.NotNull;
+import java.util.List;
 
-public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.Viewholder>{
+public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.Viewholder> {
 
     private List<MyOrderItemModel> myOrderItemModelList;
 
@@ -22,20 +24,20 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.Viewhold
     }
 
     @NonNull
-    @NotNull
     @Override
-    public MyOderAdapter.Viewholder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(vỉewGroup.getContext()).inflate(R.layout.my_order_item_layout,viewGroup, false);
+    public MyOrderAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.my_order_item_layout,viewGroup,false);
         return new Viewholder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull MyOderAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull MyOrderAdapter.Viewholder viewholder, int position) {
         int resource = myOrderItemModelList.get(position).getProductImage();
-        int rating = myOrderItemModelList.get(position).getRating();
         String title = myOrderItemModelList.get(position).getProductTitle();
         String deliveredDate = myOrderItemModelList.get(position).getDeliveryStatus();
-        viewholder.setData(resource,title,deliveredDate,rating);
+        int rating = myOrderItemModelList.get(position).getRating();
+
+        viewholder.setData(resource, title, deliveredDate, rating);
     }
 
     @Override
@@ -45,27 +47,36 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.Viewhold
 
     class Viewholder extends RecyclerView.ViewHolder{
 
-        private ImagewView productImage;
-        private ImageView orderIndicator;
+        private ImageView productImage;
+        private ImageView orderIndicatior;
         private TextView productTitle;
         private TextView deliveryStatus;
         private LinearLayout rateNowContainer;
 
-        public Viewholder(@NonNull @NotNull View itemView) {
+        public Viewholder(@NonNull View itemView) {
             super(itemView);
-            productImage = itemView.findViewById(R.id.product_image);
-            productTitle = itemView.findViewById(R.id.product_title);
-            orderIndicator = itemView.findViewById(R.id.order_indicator);
-            deliveryStatus = itemView.findViewById(R.id.delivered_date);
+            productImage = itemView.findViewById(R.id.iv_product_myorder_item);
+            orderIndicatior = itemView.findViewById(R.id.order_indicator_dot);
+            productTitle = itemView.findViewById(R.id.tv_product_title_myorder_item);
+            deliveryStatus = itemView.findViewById(R.id.tv_delivery_status_myorder);
             rateNowContainer = itemView.findViewById(R.id.rate_now_container);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent orderDetailsIntent = new Intent(itemView.getContext(),OrderDetailsActivity.class);
+                    itemView.getContext().startActivity(orderDetailsIntent);
+                }
+            });
         }
-        private setData(int resource, String title, String deliveredDate, int rating){
-            productImage.setImageResouce(resource);
+
+        private void setData(int resource, String title, String deliveredDate, int rating) {
+            productImage.setImageResource(resource);
             productTitle.setText(title);
-            if (deliveredDate.equals("Đã hủy")) {
-                orderIndicator.setImageTintList(ColorStateList.valueOf(itemView.getContext().getResources().getColor(R.color.failedRed)));
-            }else {
-                orderIndicator.setImageTintList(ColorStateList.valueOf(itemView.getContext().getResources().getColor(R.color.successGreen)));
+            if (deliveredDate.equals("Cancelled")) {
+                orderIndicatior.setImageTintList(ColorStateList.valueOf(itemView.getContext().getResources().getColor(R.color.red_ratings)));
+            } else {
+                orderIndicatior.setImageTintList(ColorStateList.valueOf(itemView.getContext().getResources().getColor(R.color.successGreen)));
             }
             deliveryStatus.setText(deliveredDate);
 
