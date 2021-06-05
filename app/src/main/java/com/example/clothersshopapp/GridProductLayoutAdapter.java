@@ -1,5 +1,6 @@
 package com.example.clothersshopapp;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,14 @@ public class GridProductLayoutAdapter extends BaseAdapter {
         if (convertView == null) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_scroll_item_layout, null);
             view.setElevation(0);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent productDetailsIntent = new Intent(parent.getContext(),ProductDetailsActivity.class);
+                    parent.getContext().startActivity(productDetailsIntent);
+                }
+            });
 
             ImageView productImage = view.findViewById(R.id.iv_horizontal_product);
             TextView productName = view.findViewById(R.id.tv_name_horizontal_product);
