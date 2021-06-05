@@ -1,21 +1,18 @@
 package com.example.clothersshopapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
-public class MyOrderItemModel extends AppCompatActivity {
+public class MyOrderItemModel {
 
     private int productImage;
-    private int rating;
     private String productTitle;
     private String deliveryStatus;
+    private int rating;
 
-    public MyOrderItemModel(int productImage, int rating, String productTitle, String deliveryStatus){
+    public MyOrderItemModel(int productImage, String productTitle, String deliveryStatus, int rating) {
         this.productImage = productImage;
-        this.rating = rating;
         this.productTitle = productTitle;
         this.deliveryStatus = deliveryStatus;
+        this.rating = rating;
+
     }
 
     public int getProductImage() {

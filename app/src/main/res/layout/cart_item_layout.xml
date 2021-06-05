@@ -77,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_free_coupon" />
 
     <View
-        android:id="@+id/divider_cutted_price"
+        android:id="@+id/divider_cutted_price_wishlist_item"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="2dp"
         android:background="?android:attr/listDivider"

@@ -34,6 +34,8 @@
 
     <color name="yellow_rating">#EDDB3E</color>
     <color name="successGreen">#47C34B</color>
-    <color name="failedRed">#FFF44336</color>
     <color name="red_ratings">#F44336</color>
+
+    <color name="background_dot">#CDC9C9</color>
+    <color name="background_progress">#F1F1F1</color>
 </resources>
