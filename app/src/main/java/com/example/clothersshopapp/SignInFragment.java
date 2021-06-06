@@ -11,10 +11,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Editable;
 import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +60,7 @@ public class SignInFragment extends BaseFragment {
         email = view.findViewById(R.id.edtEmailSignIn);
         password = view.findViewById(R.id.edtPasswordSignIn);
 
-        btnSignIn = view.findViewById(R.id.btnSignIn);
+        btnSignIn = view.findViewById(R.id.btnSave);
         tvDismiss = view.findViewById(R.id.tvDismiss);
         tvForgotPassword = view.findViewById(R.id.tvForgot);
 

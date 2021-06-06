@@ -1,12 +1,17 @@
 package com.example.clothersshopapp;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +29,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import static com.example.clothersshopapp.RegisterActivity.setSignUpFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -33,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int ORDERS_FRAGMENT = 2;
     private static final int WISHLIST_FRAGMENT = 3;
     private static final int REWARDS_FRAGMENT = 4;
+    private static final int ACCOUNT_FRAGMENT = 5;
 
     public static Boolean showCart = false;
 
@@ -101,11 +109,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+
             //NavigationView.OnNavigationItemSelectedListener navListener = new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(MenuItem item) {
 
                     int id = item.getItemId();
+
+                } else if (id == R.id.nav_order) {
+                    gotoFragment("My Orders", new MyOrdersFragment(), ORDERS_FRAGMENT);
+                } else if (id == R.id.nav_reward) {
+                    gotoFragment("My Rewards", new MyRewardsFragment(), REWARDS_FRAGMENT);
+                } else if (id == R.id.nav_cart) {
+                    gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+                } else if (id == R.id.nav_wishlist) {
+                    gotoFragment("My Wishlist", new MyWishlistFragment(), WISHLIST_FRAGMENT);
+                } else if (id == R.id.nav_account) {
+                    gotoFragment("My Account", new MyAccountFragment(), ACCOUNT_FRAGMENT);
+                } else if (id == R.id.nav_setting) {
+
 
                     if (id == R.id.nav_mymall) {
                         actionbarLogo.setVisibility(View.VISIBLE);
@@ -128,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
                     } else if (id == R.id.nav_share) {
 
+
                     } else if (id == R.id.nav_help) {
 
                     } else if (id == R.id.nav_about_us) {
@@ -137,6 +160,15 @@ public class MainActivity extends AppCompatActivity {
                     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                     if (drawer.isDrawerOpen(GravityCompat.START)) {
                         drawer.closeDrawer(GravityCompat.START);
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                } else {
+                    if (currentFragment == HOME_FRAGMENT) {
+                        currentFragment = -1;
+                        MainActivity.super.onBackPressed();
+
                     } else {
                         if (currentFragment == HOME_FRAGMENT) {
                             MainActivity.super.onBackPressed();
@@ -159,9 +191,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        // Handle action bar item click here. The action bar will automatically handle clicks on the Home/Up button
-        //, so long as you specify a parent activity in AndroidManifest.xml
-
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
@@ -178,7 +207,35 @@ public class MainActivity extends AppCompatActivity {
             //todo: notification
             return true;
         } else if (id == R.id.action_shopping_cart) {
-            gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+            Dialog signInDialog = new Dialog(MainActivity.this);
+            signInDialog.setContentView(R.layout.sign_in_dialog);
+            signInDialog.setCancelable(true);
+            signInDialog.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+
+            Button dialogSignIn = signInDialog.findViewById(R.id.btn_sign_in_dialog);
+            Button dialogSignUp = signInDialog.findViewById(R.id.btn_sign_up_dialog);
+            Intent registerIntent = new Intent(MainActivity.this, RegisterActivity.class);
+
+            dialogSignIn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    signInDialog.dismiss();
+                    setSignUpFragment = false;
+                    startActivity(registerIntent);
+                }
+            });
+
+            dialogSignUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    signInDialog.dismiss();
+                    setSignUpFragment = true;
+                    startActivity(registerIntent);
+                }
+            });
+
+            signInDialog.show();
+            //gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
             return true;
         } else if (id == R.id.home) {
              if (showCart){
@@ -217,12 +274,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
 
     private void setFragment(Fragment fragment, int fragmentNo) {
         if (fragmentNo != currentFragment) {

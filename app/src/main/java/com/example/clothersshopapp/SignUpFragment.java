@@ -1,25 +1,20 @@
 package com.example.clothersshopapp;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.PowerManager;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -63,7 +58,7 @@ public class SignUpFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
 
-        btnSignIn = view.findViewById(R.id.btnSignIn);
+        btnSignIn = view.findViewById(R.id.btnSave);
         parentFrameLayout = getActivity().findViewById(R.id.fragmentContainer);
 
         firstName = view.findViewById(R.id.edtFirstName);
