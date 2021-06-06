@@ -135,8 +135,8 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 timer.cancel();
             }
             arrangedList = new ArrayList<>();
-            for (int x =0; x < sliderModelList.size(); x++ ){
-                arrangedList.add(x,sliderModelList.get(x));
+            for (int x = 0; x < sliderModelList.size(); x++ ){
+                arrangedList.add(x, sliderModelList.get(x));
             }
             arrangedList.add(0,sliderModelList.get(sliderModelList.size() - 2));
             arrangedList.add(1,sliderModelList.get(sliderModelList.size() - 1));
@@ -163,7 +163,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onPageScrollStateChanged(int state) {
                     if (state == ViewPager.SCROLL_STATE_IDLE) {
-                        pageLooper(arrangedList);
+                        //pageLooper(arrangedList);
                     }
                 }
             };
@@ -174,7 +174,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             bannerSliderViewPager.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    pageLooper(arrangedList);
+                    //pageLooper(arrangedList);
                     stopBannerSlideShow();
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         startBannerSlideShow(arrangedList);
@@ -184,17 +184,17 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             });
         }
 
-        private void pageLooper(List<SliderModel> sliderModelList) {
-            if (currentPage == sliderModelList.size() - 2) {
-                currentPage = 2;
-                bannerSliderViewPager.setCurrentItem(currentPage, false);
-            }
-
-            if (currentPage == 1) {
-                currentPage = sliderModelList.size() - 3;
-                bannerSliderViewPager.setCurrentItem(currentPage, false);
-            }
-        }
+//        private void pageLooper(List<SliderModel> sliderModelList) {
+//            if (currentPage == sliderModelList.size() - 2) {
+//                currentPage = 2;
+//                bannerSliderViewPager.setCurrentItem(currentPage, false);
+//            }
+//
+//            if (currentPage == 1) {
+//                currentPage = sliderModelList.size() - 3;
+//                bannerSliderViewPager.setCurrentItem(currentPage, false);
+//            }
+//        }
 
         private void startBannerSlideShow(List<SliderModel> sliderModelList) {
 

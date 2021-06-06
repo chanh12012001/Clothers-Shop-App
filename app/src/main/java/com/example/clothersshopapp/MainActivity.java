@@ -1,5 +1,6 @@
 package com.example.clothersshopapp;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private Window window;
     private Toolbar toolbar;
 
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,34 +89,19 @@ public class MainActivity extends AppCompatActivity {
             toggle.syncState();
             setFragment(new HomeFragment(), HOME_FRAGMENT);
         }
-    }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            if (currentFragment == HOME_FRAGMENT) {
-                currentFragment = -1;
-                super.onBackPressed();
-            } else {
-                if (showCart) {
-                    showCart = false;
-                    finish();
-                } else {
+        setFragment(new HomeFragment() , HOME_FRAGMENT);
+
+        NavigationView.OnNavigationItemSelectedListener navListener = new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+
+                int id = item.getItemId();
+
+                if (id == R.id.nav_mymall) {
                     actionbarLogo.setVisibility(View.VISIBLE);
                     invalidateOptionsMenu();
-                    navigationView.getMenu().getItem(0).setCheckable(true);
-                }
-            }
-
-
-            //NavigationView.OnNavigationItemSelectedListener navListener = new NavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(MenuItem item) {
-
-                    int id = item.getItemId();
+                    setFragment(new HomeFragment(),HOME_FRAGMENT);
 
                 } else if (id == R.id.nav_order) {
                     gotoFragment("My Orders", new MyOrdersFragment(), ORDERS_FRAGMENT);
@@ -128,38 +115,15 @@ public class MainActivity extends AppCompatActivity {
                     gotoFragment("My Account", new MyAccountFragment(), ACCOUNT_FRAGMENT);
                 } else if (id == R.id.nav_setting) {
 
+                } else if (id == R.id.nav_logout) {
 
-                    if (id == R.id.nav_mymall) {
-                        actionbarLogo.setVisibility(View.VISIBLE);
-                        invalidateOptionsMenu();
-                        setFragment(new HomeFragment(), HOME_FRAGMENT);
+                } else if (id == R.id.nav_share) {
 
-                    } else if (id == R.id.nav_order) {
-                        gotoFragment("My Orders", new MyOrdersFragment(), ORDERS_FRAGMENT);
-                    } else if (id == R.id.nav_reward) {
-                        gotoFragment("My Rewards", new MyRewardsFragment(), REWARDS_FRAGMENT);
-                    } else if (id == R.id.nav_cart) {
-                        gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
-                    } else if (id == R.id.nav_wishlist) {
-                        gotoFragment("My Wishlist", new MyWishlistFragment(), WISHLIST_FRAGMENT);
-                    } else if (id == R.id.nav_profile) {
+                } else if (id == R.id.nav_help) {
 
-                    } else if (id == R.id.nav_setting) {
+                } else if (id == R.id.nav_about_us) {
 
-                    } else if (id == R.id.nav_logout) {
-
-                    } else if (id == R.id.nav_share) {
-
-
-                    } else if (id == R.id.nav_help) {
-
-                    } else if (id == R.id.nav_about_us) {
-
-                    }
-
-                    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-                    if (drawer.isDrawerOpen(GravityCompat.START)) {
-                        drawer.closeDrawer(GravityCompat.START);
+                }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -168,10 +132,10 @@ public class MainActivity extends AppCompatActivity {
                     if (currentFragment == HOME_FRAGMENT) {
                         currentFragment = -1;
                         MainActivity.super.onBackPressed();
-
                     } else {
-                        if (currentFragment == HOME_FRAGMENT) {
-                            MainActivity.super.onBackPressed();
+                        if (showCart) {
+                            showCart = false;
+                            finish();
                         } else {
                             actionbarLogo.setVisibility(View.VISIBLE);
                             invalidateOptionsMenu();
@@ -179,13 +143,14 @@ public class MainActivity extends AppCompatActivity {
                             navigationView.getMenu().getItem(0).setChecked(true);
                         }
                     }
-
-                    return true;
                 }
-            };
-            //NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-            //navigationView.setNavigationItemSelectedListener(navListener);
-        }
+
+                return true;
+            }
+        };
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(navListener);
+
     }
 
     @Override
@@ -196,17 +161,22 @@ public class MainActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.openDrawer(GravityCompat.START);
+            if (showCart){
+                showCart = false;
+                finish();
+                return true;
+            }
             return true;
         }
 
         //noinspection SimlifiableIfStatement
-         else if (id == R.id.action_search) {
+        else if (id == R.id.action_search) {
             //todo: search
             return true;
         } else if (id == R.id.action_notification){
             //todo: notification
             return true;
-        } else if (id == R.id.action_shopping_cart) {
+        }  else if (id == R.id.action_shopping_cart) {
             Dialog signInDialog = new Dialog(MainActivity.this);
             signInDialog.setContentView(R.layout.sign_in_dialog);
             signInDialog.setCancelable(true);
@@ -238,14 +208,9 @@ public class MainActivity extends AppCompatActivity {
             //gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
             return true;
         } else if (id == R.id.home) {
-             if (showCart){
-                 showCart = false;
-                 finish();
-                 return true;
-             }
-            //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            //drawer.openDrawer(GravityCompat.START);
-            //return true;
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.openDrawer(GravityCompat.START);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
