@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddAddressActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"></androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/img_locate"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/tv_provinvial"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/spacing_standard"
+                android:backgroundTint="#EDECEC"
+                android:hint="Tỉnh/Thành phố *"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="@color/textColorPrimary"></EditText>
+
+            <EditText
+                android:id="@+id/tv_district"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/spacing_standard"
+                android:backgroundTint="#EDECEC"
+                android:hint="Quận/huyện *"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="@color/textColorPrimary"></EditText>
+
+            <EditText
+                android:id="@+id/tv_wards"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/spacing_standard"
+                android:backgroundTint="#EDECEC"
+                android:hint="Phường xã *"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="@color/textColorPrimary"></EditText>
+
+            <EditText
+                android:id="@+id/tv_number_home"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/spacing_standard"
+                android:backgroundTint="#EDECEC"
+                android:hint="Số nhà, tên đường,.. *"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="@color/textColorPrimary"></EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/spacing_standard"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/tv_pincode"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#EDECEC"
+                    android:hint="Pincode *"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorPrimary"></EditText>
+
+                <EditText
+                    android:id="@+id/tv_state"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#EDECEC"
+                    android:hint="State *"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorPrimary"></EditText>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/tv_name"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/spacing_standard"
+                android:backgroundTint="#EDECEC"
+                android:hint="Tên người nhận *"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="@color/textColorPrimary"></EditText>
+
+            <EditText
+                android:id="@+id/tv_mobile_no"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/spacing_standard"
+                android:backgroundTint="#EDECEC"
+                android:hint="Số điện thoại *"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@color/textColorPrimary"></EditText>
+
+            <EditText
+                android:id="@+id/tv_mobile_no_alternater"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/spacing_standard"
+                android:backgroundTint="#EDECEC"
+                android:hint="Số điện thoại thay thế"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@color/textColorPrimary"></EditText>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_outline_button"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_marginStart="@dimen/spacing_standard"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/spacing_standard"
+                android:textSize="@dimen/font_size_normal"
+                android:layout_marginBottom="@dimen/_14sdp"
+                android:textColor="@color/commonColorWhite"
+                android:text="SAVE">
+            </Button>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
