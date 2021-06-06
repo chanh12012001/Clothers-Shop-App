@@ -7,8 +7,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
-import android.widget.GridView;
+import androidx.gridlayout.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,7 +24,6 @@ import java.util.TimerTask;
 public class HomePageAdapter extends RecyclerView.Adapter {
     private List<HomePageModel> homePageModelList;
     private RecyclerView.RecycledViewPool recycledViewPool;
-
 
     public HomePageAdapter(List<HomePageModel> homePageModelList) {
         this.homePageModelList = homePageModelList;
@@ -284,7 +282,27 @@ public class HomePageAdapter extends RecyclerView.Adapter {
 
         private void setGridProductLayout(List<HorizontalProductScrollModel> horizontalProductScrollModelList, String title) {
             gridLayoutTitle.setText(title);
-            gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
+
+            for(int x = 0;x < 4;x++) {
+                ImageView productImage = gridProductLayout.getChildAt(x).findViewById(R.id.iv_horizontal_product);
+                TextView productName = gridProductLayout.getChildAt(x).findViewById(R.id.tv_name_horizontal_product);
+                TextView productPrice = gridProductLayout.getChildAt(x).findViewById(R.id.tv_price_horizontal_product);
+                TextView ProductLocation = gridProductLayout.getChildAt(x).findViewById(R.id.tv_location_horizontal_product);
+
+                productImage.setImageResource(horizontalProductScrollModelList.get(x).getProductImage());
+                productName.setText(horizontalProductScrollModelList.get(x).getProductName());
+                productPrice.setText(horizontalProductScrollModelList.get(x).getProductPrice());
+                ProductLocation.setText(horizontalProductScrollModelList.get(x).getProductLocation());
+                gridProductLayout.getChildAt(x).setBackgroundColor(Color.parseColor("#ffffff"));
+                gridProductLayout.getChildAt(x).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent productDetailsIntent = new Intent(itemView.getContext(), ProductDetailsActivity.class);
+                        itemView.getContext().startActivity(productDetailsIntent);
+                    }
+                });
+            }
+
             gridViewAll.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
