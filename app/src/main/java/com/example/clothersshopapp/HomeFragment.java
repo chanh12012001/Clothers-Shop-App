@@ -60,8 +60,8 @@ public class HomeFragment extends Fragment {
         //------------------Banner slider-----------------
         List<SliderModel> sliderModelList = new ArrayList<SliderModel>();
 
-        sliderModelList.add(new SliderModel(R.drawable.ic_about_us, "#FFADDFF6"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_menu_camera,"#FFADDFF6"));
+        //sliderModelList.add(new SliderModel(R.drawable.ic_about_us, "#FFADDFF6"));
+        //sliderModelList.add(new SliderModel(R.drawable.ic_menu_camera,"#FFADDFF6"));
 
         sliderModelList.add(new SliderModel(R.drawable.img_banner_1,"#FFADDFF6"));
         sliderModelList.add(new SliderModel(R.drawable.ic_logo_shop,"#FFADDFF6"));
@@ -69,8 +69,8 @@ public class HomeFragment extends Fragment {
         sliderModelList.add(new SliderModel(R.drawable.ic_about_us,"#FFADDFF6"));
         sliderModelList.add(new SliderModel(R.drawable.ic_menu_camera,"#FFADDFF6"));
 
-        sliderModelList.add(new SliderModel(R.drawable.img_banner_1,"#FFADDFF6"));
-        sliderModelList.add(new SliderModel(R.drawable.ic_logo_shop,"#FFADDFF6"));
+        //sliderModelList.add(new SliderModel(R.drawable.img_banner_1,"#FFADDFF6"));
+        //sliderModelList.add(new SliderModel(R.drawable.ic_logo_shop,"#FFADDFF6"));
         //-------------------Banner slider---------------------
 
         //-------------------Horizontal Product Layout---------

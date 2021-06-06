@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,6 +22,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.clothersshopapp.MainActivity.showCart;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
@@ -145,7 +148,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
             //todo: search
             return true;
         } else if (id == R.id.main_shopping_cart_icon) {
-            //todo: Cart
+            Intent cartIntent = new Intent(ProductDetailsActivity.this,MainActivity.class);
+            showCart = true;
+            startActivity(cartIntent);
             return true;
         }
         return super.onOptionsItemSelected(item);
