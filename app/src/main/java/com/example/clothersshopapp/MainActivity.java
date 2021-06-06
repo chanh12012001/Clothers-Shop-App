@@ -1,12 +1,17 @@
 package com.example.clothersshopapp;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +28,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import static com.example.clothersshopapp.RegisterActivity.setSignUpFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -127,9 +134,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        // Handle action bar item click here. The action bar will automatically handle clicks on the Home/Up button
-        //, so long as you specify a parent activity in AndroidManifest.xml
-
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
@@ -146,7 +150,35 @@ public class MainActivity extends AppCompatActivity {
             //todo: notification
             return true;
         } else if (id == R.id.action_shopping_cart) {
-            gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
+            Dialog signInDialog = new Dialog(MainActivity.this);
+            signInDialog.setContentView(R.layout.sign_in_dialog);
+            signInDialog.setCancelable(true);
+            signInDialog.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+
+            Button dialogSignIn = signInDialog.findViewById(R.id.btn_sign_in_dialog);
+            Button dialogSignUp = signInDialog.findViewById(R.id.btn_sign_up_dialog);
+            Intent registerIntent = new Intent(MainActivity.this, RegisterActivity.class);
+
+            dialogSignIn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    signInDialog.dismiss();
+                    setSignUpFragment = false;
+                    startActivity(registerIntent);
+                }
+            });
+
+            dialogSignUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    signInDialog.dismiss();
+                    setSignUpFragment = true;
+                    startActivity(registerIntent);
+                }
+            });
+
+            signInDialog.show();
+            //gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
             return true;
         } else if (id == R.id.home) {
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -180,12 +212,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
 
     private void setFragment(Fragment fragment, int fragmentNo) {
         if (fragmentNo != currentFragment) {
