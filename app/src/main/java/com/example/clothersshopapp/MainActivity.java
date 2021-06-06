@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int ORDERS_FRAGMENT = 2;
     private static final int WISHLIST_FRAGMENT = 3;
     private static final int REWARDS_FRAGMENT = 4;
+    private static final int ACCOUNT_FRAGMENT = 5;
 
     private FrameLayout frameLayout;
     private static int currentFragment = 1;
@@ -87,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
                     gotoFragment("My Cart", new MyCartFragment(), CART_FRAGMENT);
                 } else if (id == R.id.nav_wishlist) {
                     gotoFragment("My Wishlist", new MyWishlistFragment(), WISHLIST_FRAGMENT);
-                } else if (id == R.id.nav_profile) {
-
+                } else if (id == R.id.nav_account) {
+                    gotoFragment("My Account", new MyAccountFragment(), ACCOUNT_FRAGMENT);
                 } else if (id == R.id.nav_setting) {
 
                 } else if (id == R.id.nav_logout) {
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     drawer.closeDrawer(GravityCompat.START);
                 } else {
                     if (currentFragment == HOME_FRAGMENT) {
+                        currentFragment = -1;
                         MainActivity.super.onBackPressed();
                     } else {
                         actionbarLogo.setVisibility(View.VISIBLE);

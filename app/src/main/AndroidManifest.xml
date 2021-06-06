@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ViewAllActivity"></activity>
+        <activity android:name=".MyAddressesActivity"></activity>
+        <activity android:name=".AddAddressActivity" />
+        <activity android:name=".DeliveryActivity" />
         <activity android:name=".OrderDetailsActivity" />
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".CategoryActivity" />

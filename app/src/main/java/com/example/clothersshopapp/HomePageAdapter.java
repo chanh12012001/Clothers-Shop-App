@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,9 +24,12 @@ import java.util.TimerTask;
 
 public class HomePageAdapter extends RecyclerView.Adapter {
     private List<HomePageModel> homePageModelList;
+    private RecyclerView.RecycledViewPool recycledViewPool;
+
 
     public HomePageAdapter(List<HomePageModel> homePageModelList) {
         this.homePageModelList = homePageModelList;
+        recycledViewPool = new RecyclerView.RecycledViewPool();
     }
 
     @Override
@@ -234,6 +238,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             horizontalLayoutTitle = itemView.findViewById(R.id.horizontal_scroll_layout_title);
             horizontalViewAll = itemView.findViewById(R.id.tv_view_all_horizontal);
             horizontalRecyclerview = itemView.findViewById(R.id.horizontal_scroll_layout_recyclerview);
+            horizontalRecyclerview.setRecycledViewPool(recycledViewPool);
         }
 
         private void setHorizontalProductLayout(List<HorizontalProductScrollModel> horizontalProductScrollModelList, String title) {
@@ -268,13 +273,13 @@ public class HomePageAdapter extends RecyclerView.Adapter {
 
         private TextView gridLayoutTitle;
         private TextView gridViewAll;
-        private GridView gridView;
+        private GridLayout gridProductLayout;
 
         public GridProductViewholder(@NonNull View itemView) {
             super(itemView);
             gridLayoutTitle = itemView.findViewById(R.id.tv_grid_product_layout_title);
             gridViewAll = itemView.findViewById(R.id.tv_view_all_grid_product_layout);
-            gridView = itemView.findViewById(R.id.gridview_product_layout);
+            gridProductLayout = itemView.findViewById(R.id.Grid_Layout);
         }
 
         private void setGridProductLayout(List<HorizontalProductScrollModel> horizontalProductScrollModelList, String title) {

@@ -38,7 +38,7 @@
 
     <string name="text_guest_user">Tài khoản khách hàng</string>
 
-    <string name="menu_profile">Hồ sơ cá nhân</string>
+    <string name="menu_myaccount">Tài khoản của tôi</string>
     <string name="menu_myorder">Đơn hàng của tôi</string>
     <string name="menu_wishlist">Yêu thích</string>
     <string name="menu_setting">Cài đặt</string>

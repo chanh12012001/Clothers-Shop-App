@@ -98,7 +98,14 @@ public class HomeFragment extends Fragment {
         homePageModelList.add(new HomePageModel(3,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(0,sliderModelList));
         homePageModelList.add(new HomePageModel(1,R.drawable.ic_wishlist,"#ffff00"));
+        homePageModelList.add(new HomePageModel(1,R.drawable.img_horizontal_item1,"#ff0000"));
+        homePageModelList.add(new HomePageModel(2,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(categoryModelList,4));
+        homePageModelList.add(new HomePageModel(1,R.drawable.img_strip_ad_1,"#000000"));
+        homePageModelList.add(new HomePageModel(2,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(3,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
         homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.ic_wishlist,"#ffff00"));
         homePageModelList.add(new HomePageModel(1,R.drawable.img_horizontal_item1,"#ff0000"));
         homePageModelList.add(new HomePageModel(2,getString(R.string.deal_of_the_day),horizontalProductScrollModelList));
 
