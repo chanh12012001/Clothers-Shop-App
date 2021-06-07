@@ -39,7 +39,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView categoryRecyclerView;
     private RecyclerView homePageRecyclerView;
     private HomePageAdapter adapter;
-    private RecyclerView testing;
     private CategoryAdapter categoryAdapter;
     private List<CategoryModel> categoryModelList;
     private FirebaseFirestore firebaseFirestore;
@@ -112,6 +111,7 @@ public class HomeFragment extends Fragment {
                    @Override
                    public void onComplete(@NonNull Task<QuerySnapshot> task){
                        if(task.isSuccessful()){
+                           homePageModelList.add(new HomePageModel(categoryModelList,4));
                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
 
                                if((long) documentSnapshot.get("view_type") == 0){
@@ -142,7 +142,6 @@ public class HomeFragment extends Fragment {
 
 
         ////////////////////TESTING//////////////////////////
-
         return view;
     }
 }
