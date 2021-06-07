@@ -39,6 +39,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView categoryRecyclerView;
     private RecyclerView homePageRecyclerView;
     private HomePageAdapter adapter;
+    private RecyclerView testing;
+    private CategoryAdapter categoryAdapter;
     private List<CategoryModel> categoryModelList;
     private FirebaseFirestore firebaseFirestore;
 
@@ -46,16 +48,13 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-
-
         categoryRecyclerView = view .findViewById(R.id.category_recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager((getActivity()));
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         categoryRecyclerView.setLayoutManager(layoutManager);
 
         categoryModelList = new ArrayList<CategoryModel>();
-
-        CategoryAdapter categoryAdapter = new CategoryAdapter(categoryModelList);
+        categoryAdapter = new CategoryAdapter(categoryModelList);
         categoryRecyclerView.setAdapter(categoryAdapter);
 
         firebaseFirestore = FirebaseFirestore.getInstance();

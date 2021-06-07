@@ -1,6 +1,7 @@
 package com.example.clothersshopapp;
 
 import android.content.Intent;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             if(!iconUrl.equals("null")) {
                 Glide.with(itemView.getContext()).load(iconUrl).apply(new RequestOptions().placeholder(R.drawable.ic_home)).into(categoryIcon);
             }
+ 
         }
 
         private void setCategory(final String name,int position) {
