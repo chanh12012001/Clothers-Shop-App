@@ -37,7 +37,7 @@ public class MyRewardsFragment extends Fragment {
         rewardModelList.add(new RewardModel(R.drawable.ic_coupen_fill2, "Mã giảm \n     giá","Giảm 100k", "Cho tất cả đơn hàng từ 1 triệu", "HSD: 12/07/2001"));
         rewardModelList.add(new RewardModel(R.drawable.ic_free_ship, "Miễn phí \n   ship","Tối đa 15k", "Cho tất cả đơn hàng từ 0 đồng", "HSD: 12/07/2001"));
 
-        MyRewardsAdapter myRewardsAdapter = new MyRewardsAdapter(rewardModelList);
+        MyRewardsAdapter myRewardsAdapter = new MyRewardsAdapter(rewardModelList, false);
         rewardsRecyclerView.setAdapter(myRewardsAdapter);
         myRewardsAdapter.notifyDataSetChanged();
 
