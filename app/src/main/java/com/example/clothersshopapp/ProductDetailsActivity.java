@@ -171,7 +171,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         rewardModelList.add(new RewardModel(R.drawable.ic_coupen_fill2, "Mã giảm \n     giá","Giảm 100k", "Cho tất cả đơn hàng từ 1 triệu", "HSD: 12/07/2001"));
         rewardModelList.add(new RewardModel(R.drawable.ic_free_ship, "Miễn phí \n   ship","Tối đa 15k", "Cho tất cả đơn hàng từ 0 đồng", "HSD: 12/07/2001"));
 
-        MyRewardsAdapter myRewardsAdapter = new MyRewardsAdapter(rewardModelList, false);
+        MyRewardsAdapter myRewardsAdapter = new MyRewardsAdapter(rewardModelList, true);
         coupensRecyclerView.setAdapter(myRewardsAdapter);
         myRewardsAdapter.notifyDataSetChanged();
 
