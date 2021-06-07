@@ -94,7 +94,7 @@ public class HomePageModel {
 
     private List<CategoryModel> categoryModelList;
 
-    public HomePageModel( List<CategoryModel> categoryModelList,int type) {
+    public HomePageModel(List<CategoryModel> categoryModelList,int type) {
         this.type = type;
         this.categoryModelList = categoryModelList;
     }
