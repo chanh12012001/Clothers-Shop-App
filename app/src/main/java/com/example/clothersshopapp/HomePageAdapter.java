@@ -311,7 +311,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 TextView productPrice = gridProductLayout.getChildAt(x).findViewById(R.id.tv_price_horizontal_product);
                 TextView ProductLocation = gridProductLayout.getChildAt(x).findViewById(R.id.tv_location_horizontal_product);
 
-//                Glide.with(itemView.getContext()).load(horizontalProductScrollModelList.get())
+//               Glide.with(itemView.getContext()).load(horizontalProductScrollModelList.get())
                 productName.setText(horizontalProductScrollModelList.get(x).getProductName());
                 productPrice.setText(horizontalProductScrollModelList.get(x).getProductPrice());
                 ProductLocation.setText(horizontalProductScrollModelList.get(x).getProductLocation());
