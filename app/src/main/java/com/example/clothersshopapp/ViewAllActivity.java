@@ -57,18 +57,7 @@ public class ViewAllActivity extends AppCompatActivity {
             gridView.setVisibility(View.VISIBLE);
 
             List<HorizontalProductScrollModel> horizontalProductScrollModelList = new ArrayList<>();
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo thun", "100000d", "TP. Hồ Chí Minh"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo Sơ mi", "200000d", "TP. Hà Nội"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo khoác nam", "400000d", "Bình Định"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo thun", "100000d", "TP. Hồ Chí Minh"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo thun", "100000d", "TP. Hồ Chí Minh"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo thun", "100000d", "TP. Hồ Chí Minh"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo thun", "100000d", "TP. Hồ Chí Minh"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo Sơ mi", "200000d", "TP. Hà Nội"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo khoác nam", "400000d", "Bình Định"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo thun", "100000d", "TP. Hồ Chí Minh"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo thun", "100000d", "TP. Hồ Chí Minh"));
-            horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.drawable.img_horizontal_item1, "Áo thun", "100000d", "TP. Hồ Chí Minh"));
+
 
             GridProductLayoutAdapter gridProductLayoutAdapter = new GridProductLayoutAdapter(horizontalProductScrollModelList);
             gridView.setAdapter(gridProductLayoutAdapter);

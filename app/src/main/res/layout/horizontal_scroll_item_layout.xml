@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     android:background="@drawable/slider_background"
@@ -15,6 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/img_horizontal_item1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
 
     <TextView
         android:id="@+id/tv_name_horizontal_product"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Áo thun"
@@ -35,7 +36,7 @@
 
     <TextView
         android:id="@+id/tv_price_horizontal_product"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="100000đ"
@@ -49,8 +50,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="3dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_price_horizontal_product"
@@ -59,19 +60,19 @@
         <ImageView
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_15sdp"
-            android:src="@drawable/ic_location"
             android:layout_gravity="bottom"
+            android:src="@drawable/ic_location"
             tools:ignore="MissingConstraints">
 
         </ImageView>
 
         <TextView
             android:id="@+id/tv_location_horizontal_product"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="top"
             android:layout_marginTop="2dp"
             android:text="TP. Hồ Chí Minh"
-            android:layout_gravity="top"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.484"
             app:layout_constraintStart_toStartOf="parent" />
