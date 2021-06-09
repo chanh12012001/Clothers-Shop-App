@@ -112,36 +112,35 @@ public class HomeFragment extends Fragment {
                    public void onComplete(@NonNull Task<QuerySnapshot> task){
                        if(task.isSuccessful()){
                            homePageModelList.add(new HomePageModel(categoryModelList,4));
-                           for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
+                           for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
 
-                               if((long) documentSnapshot.get("view_type") == 0){
+                               if ((long) documentSnapshot.get("view_type") == 0) {
 
                                    List<SliderModel> sliderModelList = new ArrayList<>();
                                    long no_of_banners = (long) documentSnapshot.get("no_of_banners");
-                                   for(long x = 1; x < no_of_banners + 1; x++)
-                                   {
+                                   for (int x = 1; x < no_of_banners + 1; x++) {
                                        sliderModelList.add(new SliderModel(documentSnapshot.get("banner_" + x).toString(),
-                                               documentSnapshot.get("banner_"+ x+ "_background").toString()));
+                                               documentSnapshot.get("banner_" + x + "_background").toString()));
                                    }
-                                   homePageModelList.add(new HomePageModel(0,sliderModelList));
+                                   homePageModelList.add(new HomePageModel(0, sliderModelList));
 
-                               }else if((long) documentSnapshot.get("view_type") == 1) {
+                               } else if ((long) documentSnapshot.get("view_type") == 1) {
 
                                    homePageModelList.add(new HomePageModel(1, documentSnapshot.get("strip_ad_banner").toString()
                                            , documentSnapshot.get("background").toString()));
-                               }else if((long) documentSnapshot.get("view_type") == 2) {
+                               } else if ((long) documentSnapshot.get("view_type") == 2) {
                                    List<HorizontalProductScrollModel> horizontalProductScrollModelList = new ArrayList<>();
                                    long no_of_products = (long) documentSnapshot.get("no_of_products");
-                                   for(long x = 1; x < no_of_products + 1; x++)
-                                   {
-                                       horizontalProductScrollModelList.add(new HorizontalProductScrollModel(documentSnapshot.get("product_ID_"+x).toString()
-                                               ,documentSnapshot.get("product_image_"+x).toString()
-                                               ,documentSnapshot.get("product_title_"+x).toString()
-                                               ,documentSnapshot.get("product_subtitle_"+x).toString()
-                                               ,documentSnapshot.get("product_price_"+x).toString()));
+                                   for (long x = 1; x < no_of_products + 1; x++) {
+                                       horizontalProductScrollModelList.add(new HorizontalProductScrollModel(
+                                               documentSnapshot.get("product_ID_" + x).toString()
+                                               , documentSnapshot.get("product_image_" + x).toString()
+                                               , documentSnapshot.get("product_title_" + x).toString()
+                                               , documentSnapshot.get("product_price_" + x).toString()
+                                               , documentSnapshot.get("product_subtitle_" + x).toString()));
                                    }
-                                   homePageModelList.add(new HomePageModel(2,documentSnapshot.get("layout_title").toString(),documentSnapshot.get("layout_background").toString(),horizontalProductScrollModelList));
-                               }else if((long) documentSnapshot.get("view_type") == 3){
+                                   homePageModelList.add(new HomePageModel(2, documentSnapshot.get("layout_title").toString(), documentSnapshot.get("layout_background").toString(), horizontalProductScrollModelList));
+                               } else if ((long) documentSnapshot.get("view_type") == 3) {
 
                                }
                            }

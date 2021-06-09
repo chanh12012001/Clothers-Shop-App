@@ -96,7 +96,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 String layoutColor = homePageModelList.get(position).getBackgroundColor();
                 String horizontalLayoutTitle = homePageModelList.get(position).getTitle();
                 List<HorizontalProductScrollModel> horizontalProductScrollModelList = homePageModelList.get(position).getHorizontalProductScrollModelList();
-                ((HorizontalProductViewholder) viewHolder).setHorizontalProductLayout(horizontalProductScrollModelList, horizontalLayoutTitle,layoutColor);
+                ((HorizontalProductViewholder) viewHolder).setHorizontalProductLayout(horizontalProductScrollModelList, horizontalLayoutTitle, layoutColor);
                 break;
 
             case HomePageModel.GRID_PRODUCT_VIEW:
@@ -254,7 +254,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
 
         public HorizontalProductViewholder(@NonNull View itemView) {
             super(itemView);
-            container = itemView.findViewById(R.id.cointainer);
+            container = itemView.findViewById(R.id.Container);
             horizontalLayoutTitle = itemView.findViewById(R.id.horizontal_scroll_layout_title);
             horizontalViewAll = itemView.findViewById(R.id.tv_view_all_horizontal);
             horizontalRecyclerview = itemView.findViewById(R.id.horizontal_scroll_layout_recyclerview);
@@ -311,7 +311,7 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 TextView productPrice = gridProductLayout.getChildAt(x).findViewById(R.id.tv_price_horizontal_product);
                 TextView ProductLocation = gridProductLayout.getChildAt(x).findViewById(R.id.tv_location_horizontal_product);
 
-//               Glide.with(itemView.getContext()).load(horizontalProductScrollModelList.get())
+                //Glide.with(itemView.getContext()).load(horizontalProductScrollModelList.get())
                 productName.setText(horizontalProductScrollModelList.get(x).getProductName());
                 productPrice.setText(horizontalProductScrollModelList.get(x).getProductPrice());
                 ProductLocation.setText(horizontalProductScrollModelList.get(x).getProductLocation());
