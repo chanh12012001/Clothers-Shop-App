@@ -84,7 +84,7 @@ public class HorizontalProductScrollAdapter extends RecyclerView.Adapter<Horizon
         }
 
         private void setProductPrice(String price) {
-            productPrice.setText("Rs."+price+"/-");
+            productPrice.setText(price);
         }
 
         private void setProductLocation(String location) {

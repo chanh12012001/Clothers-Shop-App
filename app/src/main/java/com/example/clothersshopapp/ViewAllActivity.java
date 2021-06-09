@@ -58,7 +58,6 @@ public class ViewAllActivity extends AppCompatActivity {
 
             List<HorizontalProductScrollModel> horizontalProductScrollModelList = new ArrayList<>();
 
-
             GridProductLayoutAdapter gridProductLayoutAdapter = new GridProductLayoutAdapter(horizontalProductScrollModelList);
             gridView.setAdapter(gridProductLayoutAdapter);
         }
