@@ -2,8 +2,11 @@ package com.example.clothersshopapp;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
@@ -17,6 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -77,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().getItem(0).setChecked(true);
 
         frameLayout = findViewById(R.id.nav_host_fragment);
-
         if (showCart) {
             drawer.setDrawerLockMode(1);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -89,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
             toggle.syncState();
             setFragment(new HomeFragment(), HOME_FRAGMENT);
         }
+
 
         setFragment(new HomeFragment() , HOME_FRAGMENT);
 
