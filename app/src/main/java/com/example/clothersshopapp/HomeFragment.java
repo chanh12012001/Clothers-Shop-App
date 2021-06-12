@@ -60,13 +60,15 @@ public class HomeFragment extends Fragment {
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        if(networkInfo != null && networkInfo.isConnected() == true) {
+
+        if (networkInfo != null && networkInfo.isConnected() == true) {
             noInternetConnection.setVisibility(View.GONE);
 
             categoryRecyclerView = view .findViewById(R.id.category_recyclerView);
             LinearLayoutManager layoutManager = new LinearLayoutManager((getActivity()));
             layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
             categoryRecyclerView.setLayoutManager(layoutManager);
+
             categoryAdapter = new CategoryAdapter(categoryModelList);
             categoryRecyclerView.setAdapter(categoryAdapter);
 
@@ -75,6 +77,7 @@ public class HomeFragment extends Fragment {
             }else{
                 categoryAdapter.notifyDataSetChanged();
             }
+
             homePageRecyclerView = view.findViewById(R.id.home_page_recyclerview);
             LinearLayoutManager testingLayoutManager = new LinearLayoutManager(getContext());
             testingLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -88,7 +91,7 @@ public class HomeFragment extends Fragment {
                 categoryAdapter.notifyDataSetChanged();
             }
 
-        } else{
+        } else {
             Glide.with(this).load(R.drawable.no_internet_connection).into(noInternetConnection);
             noInternetConnection.setVisibility(View.VISIBLE);
         }

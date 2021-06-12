@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     public static Boolean showCart = false;
 
     private FrameLayout frameLayout;
+    private ImageView noInternetConnection;
     private int currentFragment = 1;
     TextView actionbarLogo;
     private NavigationView navigationView;
@@ -81,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().getItem(0).setChecked(true);
 
         frameLayout = findViewById(R.id.nav_host_fragment);
+        noInternetConnection = findViewById(R.id.no_internet_connection);
+
         if (showCart) {
             drawer.setDrawerLockMode(1);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

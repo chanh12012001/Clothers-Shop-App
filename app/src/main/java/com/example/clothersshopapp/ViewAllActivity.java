@@ -18,6 +18,7 @@ public class ViewAllActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private GridView gridView;
+    public static List<WishlistModel> wishlistModelList;
     public static List<HorizontalProductScrollModel> horizontalProductScrollModelList;
 
     @Override
@@ -41,15 +42,6 @@ public class ViewAllActivity extends AppCompatActivity {
             layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
             recyclerView.setLayoutManager(layoutManager);
 
-            List<WishlistModel> wishlistModelList = new ArrayList<>();
-            wishlistModelList.add(new WishlistModel(R.drawable.img_horizontal_item1, "Áo thun nam-Trắng-XL",1,"3",145,"200000đ","250000đ", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.img_horizontal_item1, "Áo thun nam-Trắng-XL",1,"2",145,"200000đ","250000đ", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.img_horizontal_item1, "Áo thun nam-Trắng-XL",0,"5",145,"200000đ","250000đ", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.img_horizontal_item1, "Áo thun nam-Trắng-XL",3,"4.5",145,"200000đ","250000đ", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.img_horizontal_item1, "Áo thun nam-Trắng-XL",1,"3",145,"200000đ","250000đ", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.img_horizontal_item1, "Áo thun nam-Trắng-XL",1,"2",145,"200000đ","250000đ", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.img_horizontal_item1, "Áo thun nam-Trắng-XL",0,"5",145,"200000đ","250000đ", "Cash on delivery"));
-            wishlistModelList.add(new WishlistModel(R.drawable.img_horizontal_item1, "Áo thun nam-Trắng-XL",3,"4.5",145,"200000đ","250000đ", "Cash on delivery"));
             WishlistAdapter adapter = new WishlistAdapter(wishlistModelList,false);
             recyclerView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
