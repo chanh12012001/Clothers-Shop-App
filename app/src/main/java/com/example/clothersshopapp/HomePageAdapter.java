@@ -46,8 +46,8 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 return HomePageModel.HORIZONTAL_PRODUCT_VIEW;
             case 3:
                 return HomePageModel.GRID_PRODUCT_VIEW;
-            case 4:
-                return HomePageModel.CATEGORY_VIEW;
+//            case 4:
+//                return HomePageModel.CATEGORY_VIEW;
             default:
                 return -1;
         }
@@ -70,9 +70,9 @@ public class HomePageAdapter extends RecyclerView.Adapter {
             case HomePageModel.GRID_PRODUCT_VIEW:
                 View gridProdutView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.grid_product_layout, viewGroup, false);
                 return new GridProductViewholder(gridProdutView);
-            case HomePageModel.CATEGORY_VIEW:
-                View categoryView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.category_layout, viewGroup, false);
-                return new CategoryViewholder(categoryView);
+//            case HomePageModel.CATEGORY_VIEW:
+//                View categoryView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.category_layout, viewGroup, false);
+//                return new CategoryViewholder(categoryView);
             default:
                 return null;
         }
@@ -107,10 +107,10 @@ public class HomePageAdapter extends RecyclerView.Adapter {
                 ((GridProductViewholder) viewHolder).setGridProductLayout(gridProductScrollModelList, gridLayouttitle, gridLayoutColor);
                 break;
 
-            case HomePageModel.CATEGORY_VIEW:
-                List<CategoryModel> categoryModelList = homePageModelList.get(position).getCategoryModelList();
-                ((CategoryViewholder) viewHolder).setCategoryLayout(categoryModelList);
-                break;
+//            case HomePageModel.CATEGORY_VIEW:
+//                List<CategoryModel> categoryModelList = homePageModelList.get(position).getCategoryModelList();
+//                ((CategoryViewholder) viewHolder).setCategoryLayout(categoryModelList);
+//                break;
 
             default:
                 return;
@@ -345,24 +345,24 @@ public class HomePageAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public class CategoryViewholder extends RecyclerView.ViewHolder {
-
-        private RecyclerView categoryRecyclerview;
-
-        public CategoryViewholder(@NonNull View itemView) {
-            super(itemView);
-            categoryRecyclerview = itemView.findViewById(R.id.category_recyclerView);
-        }
-
-        private void setCategoryLayout(List<CategoryModel> categoryModelList) {
-
-            CategoryAdapter categoryAdapter = new CategoryAdapter(categoryModelList);
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(itemView.getContext());
-            linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-            categoryRecyclerview.setLayoutManager(linearLayoutManager);
-
-            categoryRecyclerview.setAdapter(categoryAdapter);
-            categoryAdapter.notifyDataSetChanged();
-        }
-    }
+//    public class CategoryViewholder extends RecyclerView.ViewHolder {
+//
+//        private RecyclerView categoryRecyclerview;
+//
+//        public CategoryViewholder(@NonNull View itemView) {
+//            super(itemView);
+//            categoryRecyclerview = itemView.findViewById(R.id.category_recyclerView);
+//        }
+//
+//        private void setCategoryLayout(List<CategoryModel> categoryModelList) {
+//
+//            CategoryAdapter categoryAdapter = new CategoryAdapter(categoryModelList);
+//            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(itemView.getContext());
+//            linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+//            categoryRecyclerview.setLayoutManager(linearLayoutManager);
+//
+//            categoryRecyclerview.setAdapter(categoryAdapter);
+//            categoryAdapter.notifyDataSetChanged();
+//        }
+//    }
 }
