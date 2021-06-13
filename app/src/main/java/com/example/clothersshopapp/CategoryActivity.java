@@ -3,8 +3,6 @@ package com.example.clothersshopapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,11 +11,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import static com.example.clothersshopapp.DBqueries.lists;
+import static com.example.clothersshopapp.DBqueries.loadFragmentData;
+import static com.example.clothersshopapp.DBqueries.loadedCategoriesNames;
 
 public class CategoryActivity extends AppCompatActivity {
 
     private RecyclerView categoryRecyclerView;
+    private HomePageAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +32,25 @@ public class CategoryActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         categoryRecyclerView = findViewById(R.id.category_recyclerview);
-
-
         LinearLayoutManager testingLayoutManager = new LinearLayoutManager(this);
         testingLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         categoryRecyclerView.setLayoutManager(testingLayoutManager);
 
-        List<HomePageModel> homePageModelList = new ArrayList<>();
+        int listPosition = 0;
+        for (int x = 0; x < loadedCategoriesNames.size(); x++) {
+            if (loadedCategoriesNames.get(x).equals(title.toUpperCase())) {
+                listPosition = x;
+            }
+        }
+        if (listPosition == 0) {
+            loadedCategoriesNames.add(title.toUpperCase());
+            lists.add(new ArrayList<HomePageModel>());
+            adapter = new HomePageAdapter(lists.get(loadedCategoriesNames.size() -  1));
+            loadFragmentData(adapter, this,loadedCategoriesNames.size() - 1, title);
+        } else {
+            adapter = new HomePageAdapter(lists.get(listPosition));
+        }
 
-        HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
         categoryRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

@@ -8,7 +8,7 @@ public class HomePageModel {
     public static final int STRIP_AD_BANNER = 1;
     public static final int HORIZONTAL_PRODUCT_VIEW = 2;
     public static final int GRID_PRODUCT_VIEW = 3;
-    public static final int CATEGORY_VIEW = 4;
+    //public static final int CATEGORY_VIEW = 4;
 
     private int type;
     private String backgroundColor;
@@ -119,19 +119,19 @@ public class HomePageModel {
 
     //------------------------Category---------------------------
 
-    private List<CategoryModel> categoryModelList;
-
-    public HomePageModel(List<CategoryModel> categoryModelList,int type) {
-        this.type = type;
-        this.categoryModelList = categoryModelList;
-    }
-
-    public List<CategoryModel> getCategoryModelList() {
-        return categoryModelList;
-    }
-
-    public void setCategoryModelList(List<CategoryModel> categoryModelList) {
-        this.categoryModelList = categoryModelList;
-    }
+//    private List<CategoryModel> categoryModelList;
+//
+//    public HomePageModel(List<CategoryModel> categoryModelList,int type) {
+//        this.type = type;
+//        this.categoryModelList = categoryModelList;
+//    }
+//
+//    public List<CategoryModel> getCategoryModelList() {
+//        return categoryModelList;
+//    }
+//
+//    public void setCategoryModelList(List<CategoryModel> categoryModelList) {
+//        this.categoryModelList = categoryModelList;
+//    }
     //------------------------Category---------------------------
 }

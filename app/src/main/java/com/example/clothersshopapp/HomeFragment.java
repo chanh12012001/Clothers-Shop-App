@@ -1,44 +1,28 @@
 package com.example.clothersshopapp;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import static com.example.clothersshopapp.DBqueries.categoryModelList;
-import static com.example.clothersshopapp.DBqueries.firebaseFirestore;
-import static com.example.clothersshopapp.DBqueries.homePageModelList;
+import static com.example.clothersshopapp.DBqueries.lists;
 import static com.example.clothersshopapp.DBqueries.loadCategories;
 import static com.example.clothersshopapp.DBqueries.loadFragmentData;
+import static com.example.clothersshopapp.DBqueries.loadedCategoriesNames;
 
 public class HomeFragment extends Fragment {
 
@@ -64,11 +48,10 @@ public class HomeFragment extends Fragment {
         if (networkInfo != null && networkInfo.isConnected() == true) {
             noInternetConnection.setVisibility(View.GONE);
 
-            categoryRecyclerView = view .findViewById(R.id.category_recyclerView);
+            categoryRecyclerView = view .findViewById(R.id.category_recyclerview);
             LinearLayoutManager layoutManager = new LinearLayoutManager((getActivity()));
             layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
             categoryRecyclerView.setLayoutManager(layoutManager);
-
             categoryAdapter = new CategoryAdapter(categoryModelList);
             categoryRecyclerView.setAdapter(categoryAdapter);
 
@@ -82,14 +65,17 @@ public class HomeFragment extends Fragment {
             LinearLayoutManager testingLayoutManager = new LinearLayoutManager(getContext());
             testingLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
             homePageRecyclerView.setLayoutManager(testingLayoutManager);
-            adapter = new HomePageAdapter(homePageModelList);
-            homePageRecyclerView.setAdapter(adapter);
 
-            if (homePageModelList.size() == 0){
-                loadFragmentData(adapter, getContext());
+            if (lists.size() == 0){
+                loadedCategoriesNames.add("HOME");
+                lists.add(new ArrayList<HomePageModel>());
+                adapter = new HomePageAdapter(lists.get(0));
+                loadFragmentData(adapter, getContext(),0, "Home");
             }else{
-                categoryAdapter.notifyDataSetChanged();
+                adapter = new HomePageAdapter(lists.get(0));
+                adapter.notifyDataSetChanged();
             }
+            homePageRecyclerView.setAdapter(adapter);
 
         } else {
             Glide.with(this).load(R.drawable.no_internet_connection).into(noInternetConnection);
