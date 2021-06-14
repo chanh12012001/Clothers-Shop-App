@@ -60,9 +60,9 @@ public class MyRewardsAdapter extends RecyclerView.Adapter<MyRewardsAdapter.View
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             coupenIcon = itemView.findViewById(R.id.iv_icon_coupon_rewards_item);
-            coupenTitle = itemView.findViewById(R.id.tv_coupen_title);
-            coupenDiscountPrice = itemView.findViewById(R.id.tv_coupen_discount_price);
-            coupenBody = itemView.findViewById(R.id.tv_coupen_body);
+            coupenTitle = itemView.findViewById(R.id.reward_title);
+            coupenDiscountPrice = itemView.findViewById(R.id.reward_title);
+            coupenBody = itemView.findViewById(R.id.reward_body);
             coupenExpiryDate = itemView.findViewById(R.id.tv_coupen_validity);
         }
 

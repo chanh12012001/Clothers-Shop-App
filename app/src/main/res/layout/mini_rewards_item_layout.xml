@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_coupen_title"
+            android:id="@+id/reward_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_8sdp"
@@ -56,7 +56,7 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/tv_coupen_discount_price"
+            android:id="@+id/reward_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -68,14 +68,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_coupen_body"
+            android:id="@+id/reward_body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="4dp"
             android:text="Cho tất cả các đơn hàng từ 549k"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_coupen_discount_price" />
+            app:layout_constraintTop_toBottomOf="@+id/reward_title" />
 
         <TextView
             android:id="@+id/tv_coupen_validity"

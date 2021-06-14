@@ -3,8 +3,6 @@ package com.example.clothersshopapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -22,9 +20,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +39,19 @@ import static com.example.clothersshopapp.MainActivity.showCart;
 public class ProductDetailsActivity extends AppCompatActivity {
 
     private ViewPager productImagesViewPager;
+    private TextView productTitle;
+    private TextView averageRatingMiniView;
+    private TextView totalRatingMiniView;
+    private TextView productPrice;
+    private TextView cuttedPrice;
+    private ImageView codIndicator;
+    private TextView tvCodIndicator;
     private TabLayout viewpagerIndicator;
     private Button coupenRedeemBtn;
+
+    private TextView rewardTitle;
+    private TextView rewardBody;
+
 
     ///////////Coupen dialog////////////
     public static ImageView coupenIcon;
@@ -60,6 +76,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private static boolean ALREADY_ADDED_TO_WISHLIST = false;
     private FloatingActionButton btnAddToWishlist;
 
+    private FirebaseFirestore firebaseFirestore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,15 +94,53 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDetailsTablayout = findViewById(R.id.tablayout_product_details);
         buyNowBtn = findViewById(R.id.btn_buy_now);
         coupenRedeemBtn = findViewById(R.id.btn_coupon_redemption);
+        productTitle = findViewById(R.id.tv_product_title);
+        averageRatingMiniView = findViewById(R.id.tv_product_rating_miniview);
+        totalRatingMiniView = findViewById(R.id.total_rating_miniview);
+        productPrice = findViewById(R.id.tv_product_price);
+        rewardBody = findViewById(R.id.reward_body);
+        rewardTitle = findViewById(R.id.reward_title);
 
-        List<Integer> productImages = new ArrayList<>();
-        productImages.add(R.drawable.img_horizontal_item1);
-        productImages.add(R.drawable.ic_profile);
-        productImages.add(R.drawable.ic_add_profile);
-        productImages.add(R.drawable.img_strip_ad_1);
 
-        ProductImagesAdapter productImagesAdapter = new ProductImagesAdapter(productImages);
-        productImagesViewPager.setAdapter(productImagesAdapter);
+        firebaseFirestore = FirebaseFirestore.getInstance();
+
+        List<String> productImages = new ArrayList<>();
+
+        firebaseFirestore.collection("PRODUCTS").document("1BzhJE7oDo9FxzZ08Wsy").get() .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()) {
+                    DocumentSnapshot documentSnapshot = task.getResult();
+
+                    for(long x = 0;x < (long)documentSnapshot.get("no_of_product_images") + 1; x++){
+                        productImages.add(documentSnapshot.get("product_image_"+x).toString());
+
+                    }
+                    ProductImagesAdapter productImagesAdapter = new ProductImagesAdapter(productImages);
+                    productImagesViewPager.setAdapter(productImagesAdapter);
+
+                    productTitle.setText(documentSnapshot.get("product_title").toString());
+
+                    productTitle.setText(documentSnapshot.get("product_title").toString());
+                    averageRatingMiniView.setText(documentSnapshot.get("average_rating").toString());
+                    totalRatingMiniView.setText("("+(long)documentSnapshot.get("total_ratings")+")ratings");
+                    productPrice.setText("Rs."+documentSnapshot.get("product_Price").toString()+"/-");
+                    cuttedPrice.setText("Rs."+documentSnapshot.get("cutted_Price").toString()+"/-");
+                    rewardTitle.setText((long)documentSnapshot.get("free_coupens")+documentSnapshot.get("free_coupent_title").toString());
+                    rewardBody.setText(documentSnapshot.get("free_coupens_body").toString());
+
+                    if((boolean)documentSnapshot.get("use_tab_layout")){
+
+                    }
+                }else{
+                    String error = task.getException().getMessage();
+                    Toast.makeText(ProductDetailsActivity.this, "error", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
 
         viewpagerIndicator.setupWithViewPager(productImagesViewPager,true);
 
@@ -153,9 +209,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
         selectedCoupen = checkCoupenPriceDialog.findViewById(R.id.selected_coupen_container);
 
         coupenIcon = checkCoupenPriceDialog.findViewById(R.id.iv_icon_coupon_rewards_item);
-        coupenTitle = checkCoupenPriceDialog.findViewById(R.id.tv_coupen_title);
-        coupenDiscountPrice = checkCoupenPriceDialog.findViewById(R.id.tv_coupen_discount_price);
-        coupenBody = checkCoupenPriceDialog.findViewById(R.id.tv_coupen_body);
+        coupenTitle = checkCoupenPriceDialog.findViewById(R.id.reward_title);
+        coupenDiscountPrice = checkCoupenPriceDialog.findViewById(R.id.reward_title);
+        coupenBody = checkCoupenPriceDialog.findViewById(R.id.reward_body);
         coupenExpiryDate = checkCoupenPriceDialog.findViewById(R.id.tv_coupen_validity);
 
         TextView originalPrice = checkCoupenPriceDialog.findViewById(R.id.tv_original_price);
