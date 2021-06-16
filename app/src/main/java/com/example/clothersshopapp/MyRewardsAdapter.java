@@ -37,11 +37,10 @@ public class MyRewardsAdapter extends RecyclerView.Adapter<MyRewardsAdapter.View
     public void onBindViewHolder(@NonNull Viewholder viewholder, int position) {
         int icon =   rewardModelList.get(position).getIconCoupen();
         String title =   rewardModelList.get(position).getTitle();
-        String discount =   rewardModelList.get(position).getDiscountPrice();
         String body =   rewardModelList.get(position).getCoupenBody();
         String date =   rewardModelList.get(position).getExpiryDate();
 
-        viewholder.setData(icon, title, discount, body, date);
+        viewholder.setData(icon, title, body, date);
     }
 
     @Override
@@ -53,23 +52,20 @@ public class MyRewardsAdapter extends RecyclerView.Adapter<MyRewardsAdapter.View
 
         private ImageView coupenIcon;
         private TextView coupenTitle;
-        private TextView coupenDiscountPrice;
         private TextView coupenBody;
         private TextView coupenExpiryDate;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             coupenIcon = itemView.findViewById(R.id.iv_icon_coupon_rewards_item);
-            coupenTitle = itemView.findViewById(R.id.reward_title);
-            coupenDiscountPrice = itemView.findViewById(R.id.reward_title);
-            coupenBody = itemView.findViewById(R.id.reward_body);
+            coupenTitle = itemView.findViewById(R.id.tv_coupen_title);
+            coupenBody = itemView.findViewById(R.id.tv_coupen_body);
             coupenExpiryDate = itemView.findViewById(R.id.tv_coupen_validity);
         }
 
-        private void setData(int resource, String title, String discountPrice, String body, String date) {
+        private void setData(int resource, String title, String body, String date) {
             coupenIcon.setImageResource(resource);
             coupenTitle.setText(title);
-            coupenDiscountPrice.setText(discountPrice);
             coupenBody.setText(body);
             coupenExpiryDate.setText(date);
 
@@ -77,9 +73,7 @@ public class MyRewardsAdapter extends RecyclerView.Adapter<MyRewardsAdapter.View
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ProductDetailsActivity.coupenIcon.setImageResource(resource);
                         ProductDetailsActivity.coupenTitle.setText(title);
-                        ProductDetailsActivity.coupenDiscountPrice.setText(discountPrice);
                         ProductDetailsActivity.coupenBody.setText(body);
                         ProductDetailsActivity.coupenExpiryDate.setText(date);
                         ProductDetailsActivity.showDialogRecyclerView();

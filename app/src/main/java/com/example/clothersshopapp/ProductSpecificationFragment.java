@@ -20,6 +20,7 @@ public class ProductSpecificationFragment extends Fragment {
     }
 
     private RecyclerView productSpecificationRecyclerview;
+    public List<ProductSpecificationModel> productSpecificationModelList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,14 +34,21 @@ public class ProductSpecificationFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         productSpecificationRecyclerview.setLayoutManager(linearLayoutManager);
-
-        List<ProductSpecificationModel> productSpecificationModelList = new ArrayList<>();
-        productSpecificationModelList.add(new ProductSpecificationModel(0, "General"));
-        productSpecificationModelList.add(new ProductSpecificationModel(1,"Kho", "243884"));
-        productSpecificationModelList.add(new ProductSpecificationModel(1,"Thương hiệu", "No Brand"));
-        productSpecificationModelList.add(new ProductSpecificationModel(1,"Chất liệu", "Cotton"));
-        productSpecificationModelList.add(new ProductSpecificationModel(1,"Xuất xứ", "Việt Nam"));
-        productSpecificationModelList.add(new ProductSpecificationModel(1,"Gửi từ", "Quận 9, TPHCM"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(0, "General"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(1,"Kho", "243884"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(1,"Thương hiệu", "No Brand"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(1,"Chất liệu", "Cotton"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(1,"Xuất xứ", "Việt Nam"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(1,"Gửi từ", "Quận 9, TPHCM"));
+//
+//
+//        productSpecificationModelList.add(new ProductSpecificationModel(0, "ok"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(1,"Kho", "243884"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(1,"Thương hiệu", "No Brand"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(1,"Chất liệu", "Cotton"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(1,"Xuất xứ", "Việt Nam"));
+//        productSpecificationModelList.add(new ProductSpecificationModel(1,"Gửi từ", "Quận 9, TPHCM"));
+//
 
         ProductSpecificationAdapter productSpecificationAdapter = new ProductSpecificationAdapter(productSpecificationModelList);
         productSpecificationRecyclerview.setAdapter(productSpecificationAdapter);

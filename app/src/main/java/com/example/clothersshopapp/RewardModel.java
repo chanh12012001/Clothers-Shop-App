@@ -4,14 +4,12 @@ public class RewardModel {
 
     private int iconCoupen;
     private String title;
-    private String discountPrice;
     private String coupenBody;
     private String expiryDate;
 
-    public RewardModel(int iconCoupen, String title, String discountPrice, String coupenBody, String expiryDate) {
+    public RewardModel(int iconCoupen, String title, String coupenBody, String expiryDate) {
         this.iconCoupen = iconCoupen;
         this.title = title;
-        this.discountPrice = discountPrice;
         this.coupenBody = coupenBody;
         this.expiryDate = expiryDate;
     }
@@ -30,14 +28,6 @@ public class RewardModel {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDiscountPrice() {
-        return discountPrice;
-    }
-
-    public void setDiscountPrice(String discountPrice) {
-        this.discountPrice = discountPrice;
     }
 
     public String getCoupenBody() {

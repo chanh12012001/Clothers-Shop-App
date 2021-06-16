@@ -1,53 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_discount_color"
-    android:backgroundTint="#FFFFFF"
+    android:id="@+id/reward_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
     android:layout_marginTop="16dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_marginBottom="@dimen/_3sdp"
+    android:background="@drawable/bg_discount_color"
+    android:backgroundTint="#FFFFFF">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_60sdp"
         android:background="@drawable/bg_discount_color"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/iv_icon_coupon_rewards_item"
+            android:id="@+id/iv_reward_icon"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:src="@drawable/ic_coupen_fill2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_coupen_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp"
-            android:text="Mã giảm\n     giá"
-            android:textColor="@color/white"
-            android:textSize="@dimen/font_size_small"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_icon_coupon_rewards_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="@dimen/_227sdp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_60sdp"
         android:background="@drawable/bg_discount_color2"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +47,7 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/tv_coupen_discount_price"
+            android:id="@+id/reward_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -68,24 +59,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_coupen_body"
+            android:id="@+id/reward_body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="4dp"
             android:text="Cho tất cả các đơn hàng từ 549k"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_coupen_discount_price" />
+            app:layout_constraintTop_toBottomOf="@+id/reward_title" />
 
-        <TextView
-            android:id="@+id/tv_coupen_validity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="HSD: 06/06/2021"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
