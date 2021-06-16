@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/product_details_tabs_container"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/product_details_tabs_cointainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,16 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_33sdp"
         android:layout_marginTop="@dimen/spacing_standard"
+        app:tabMode="fixed"
+        app:tabGravity="center"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorGravity="stretch"
+        app:tabRippleColor="@color/color_transparent"
+        app:tabIndicator="@drawable/bg_ractangle_rounded"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabGravity="center"
-        app:tabIndicator="@drawable/bg_ractangle_rounded"
-        app:tabIndicatorAnimationMode="elastic"
-        app:tabIndicatorGravity="stretch"
-        app:tabMode="fixed"
-        app:tabRippleColor="@color/color_transparent"
-        app:tabSelectedTextColor="@color/white">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -42,11 +42,11 @@
         android:id="@+id/viewpager_product_details"
         android:layout_width="0dp"
         android:layout_height="400dp"
-        android:layout_marginStart="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/spacing_standard"
-        android:layout_marginEnd="@dimen/_5sdp"
-        android:scrollbars="vertical"
         android:verticalScrollbarPosition="left"
+        android:scrollbars="vertical"
+        android:layout_marginTop="@dimen/spacing_standard"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tablayout_product_details" />

@@ -51,8 +51,6 @@
         android:id="@+id/tv_product_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:text="Product Title"
         android:textColor="@color/textColorPrimary"
         android:textSize="25sp"
@@ -80,7 +78,7 @@
         <TextView
             android:id="@+id/tv_product_rating_miniview"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:text="4.5"
             android:textColor="@color/white"
             android:textSize="@dimen/font_size_large"
@@ -92,6 +90,7 @@
             android:layout_marginStart="@dimen/_3sdp"
             android:layout_marginTop="@dimen/_3sdp"
             android:src="@drawable/ic_star"
+            tools:ignore="MissingPrefix"
             app:tint="@color/white"></ImageView>
 
     </LinearLayout>
@@ -134,7 +133,7 @@
         app:layout_constraintTop_toBottomOf="@+id/total_rating_miniview" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_product_cutted_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
