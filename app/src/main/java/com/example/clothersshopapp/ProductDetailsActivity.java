@@ -1,5 +1,6 @@
 package com.example.clothersshopapp;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -36,7 +37,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.clothersshopapp.DBqueries.currentUser;
 import static com.example.clothersshopapp.MainActivity.showCart;
+import static com.example.clothersshopapp.R.id.btn_add_to_cart;
+import static com.example.clothersshopapp.RegisterActivity.setSignUpFragment;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
@@ -51,6 +55,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private TabLayout viewpagerIndicator;
     private Button coupenRedeemBtn;
 
+    private LinearLayout coupenRedemption;
     private TextView rewardTitle;
     private TextView rewardBody;
 
@@ -76,6 +81,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     /////////rating layout//////////
 
     private Button buyNowBtn;
+    private ImageView addtoCartBtn;
 
     private static boolean ALREADY_ADDED_TO_WISHLIST = false;
     private FloatingActionButton btnAddToWishlist;
@@ -91,6 +97,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private static LinearLayout selectedCoupen;
     ///////////Coupen dialog////////////
 
+    private Dialog signInDialog;
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,6 +135,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
         totalRatingsFigure = findViewById(R.id.tv_sum_rating_number);
         ratingsProgressBarContainer = findViewById(R.id.ratings_progressbar_container);
         averageRating = findViewById(R.id.tv_average_rating);
+        addtoCartBtn = findViewById(R.id.btn_add_to_cart);
+        coupenRedemption = findViewById(R.id.coupen_redemption_layout);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
 
@@ -201,12 +212,16 @@ public class ProductDetailsActivity extends AppCompatActivity {
         btnAddToWishlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ALREADY_ADDED_TO_WISHLIST) {
-                    ALREADY_ADDED_TO_WISHLIST = false;
-                    btnAddToWishlist.setSupportImageTintList(ColorStateList.valueOf(Color.parseColor("#9e9e9e")));
+                if (currentUser == null) {
+                    signInDialog.show();
                 } else {
-                    ALREADY_ADDED_TO_WISHLIST = true;
-                    btnAddToWishlist.setSupportImageTintList(getResources().getColorStateList(R.color.color_wishlist));
+                    if (ALREADY_ADDED_TO_WISHLIST) {
+                        ALREADY_ADDED_TO_WISHLIST = false;
+                        btnAddToWishlist.setSupportImageTintList(ColorStateList.valueOf(Color.parseColor("#9e9e9e")));
+                    } else {
+                        ALREADY_ADDED_TO_WISHLIST = true;
+                        btnAddToWishlist.setSupportImageTintList(getResources().getColorStateList(R.color.color_wishlist));
+                    }
                 }
             }
         });
@@ -236,7 +251,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
             rateNowContainer.getChildAt(x).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    setRating(starPosition);
+                        if(currentUser == null)
+                    {
+                        signInDialog.show();
+                    }
+                    else {
+                            setRating(starPosition);
+                    }
                 }
             });
         }
@@ -245,8 +266,27 @@ public class ProductDetailsActivity extends AppCompatActivity {
         buyNowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent deliveryIntent = new Intent(ProductDetailsActivity.this, DeliveryActivity.class);
-                startActivity(deliveryIntent);
+                if(currentUser == null)
+                {
+                    signInDialog.show();
+                }
+                else {
+                    Intent deliveryIntent = new Intent(ProductDetailsActivity.this, DeliveryActivity.class);
+                    startActivity(deliveryIntent);
+                }
+            }
+        });
+
+        addtoCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(currentUser == null)
+                {
+                    signInDialog.show();
+                }
+                else {
+                    ///todo: add to cart
+                }
             }
         });
 
@@ -295,6 +335,42 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 checkCoupenPriceDialog.show();
             }
         });
+
+        ////signinDialog///
+        signInDialog = new Dialog(ProductDetailsActivity.this);
+        signInDialog.setContentView(R.layout.sign_in_dialog);
+        signInDialog.setCancelable(true);
+        signInDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        Button dialogSignIn = signInDialog.findViewById(R.id.btn_sign_in_dialog);
+        Button dialogSignUp = signInDialog.findViewById(R.id.btn_sign_up_dialog);
+        Intent registerIntent = new Intent(ProductDetailsActivity.this, RegisterActivity.class);
+
+        dialogSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SignInFragment.disableClosebtn = true;
+                SignUpFragment.disableClosebtn = true;
+                signInDialog.dismiss();
+                setSignUpFragment = false;
+                startActivity(registerIntent);
+            }
+        });
+
+        dialogSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SignInFragment.disableClosebtn = true;
+                SignUpFragment.disableClosebtn = true;
+                signInDialog.dismiss();
+                setSignUpFragment = true;
+                startActivity(registerIntent);
+            }
+        });
+        ////signinDiaolog///
+        if(currentUser == null){
+            coupenRedemption.setVisibility(View.GONE);
+        }
     }
 
     public static void showDialogRecyclerView() {
@@ -340,10 +416,15 @@ public class ProductDetailsActivity extends AppCompatActivity {
             //todo: search
             return true;
         } else if (id == R.id.main_shopping_cart_icon) {
-            Intent cartIntent = new Intent(ProductDetailsActivity.this,MainActivity.class);
-            showCart = true;
-            startActivity(cartIntent);
-            return true;
+            if(currentUser == null) {
+                signInDialog.show();
+            }
+            else {
+                Intent cartIntent = new Intent(ProductDetailsActivity.this, MainActivity.class);
+                showCart = true;
+                startActivity(cartIntent);
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }

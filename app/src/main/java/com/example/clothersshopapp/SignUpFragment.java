@@ -53,6 +53,8 @@ public class SignUpFragment extends BaseFragment {
 
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
+    public static boolean disableClosebtn;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -72,6 +74,12 @@ public class SignUpFragment extends BaseFragment {
         firebaseAuth = FirebaseAuth.getInstance();
 
         firebaseFirestore =  FirebaseFirestore.getInstance();
+
+        if(disableClosebtn){
+            btnSignIn.setVisibility(View.GONE);
+        }else {
+            btnSignIn.setVisibility(View.VISIBLE);
+        }
 
         return view;
     }
@@ -258,5 +266,14 @@ public class SignUpFragment extends BaseFragment {
         } else {
             email.setError(getResources().getString(R.string.check_email));
         }
+    }
+    private void mainIntent(){
+        if(disableClosebtn){
+            disableClosebtn = false;
+        }else {
+            Intent mainIntent = new Intent(getActivity(), MainActivity.class);
+            startActivity(mainIntent);
+        }
+        getActivity().finish();
     }
 }

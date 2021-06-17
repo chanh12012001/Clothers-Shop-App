@@ -49,6 +49,8 @@ public class SignInFragment extends BaseFragment {
 
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
+    public static boolean disableClosebtn = false;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -65,6 +67,12 @@ public class SignInFragment extends BaseFragment {
         tvForgotPassword = view.findViewById(R.id.tvForgot);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        if(disableClosebtn){
+            tvDismiss.setVisibility(View.GONE);
+        }else {
+            tvDismiss.setVisibility(View.VISIBLE);
+        }
 
         return view;
     }
@@ -189,5 +197,14 @@ public class SignInFragment extends BaseFragment {
         } else {
             Toast.makeText(getActivity(), getResources().getText(R.string.check_user_password), Toast.LENGTH_SHORT).show();
         }
+    }
+    private void mainIntent(){
+        if(disableClosebtn){
+            disableClosebtn = false;
+        }else {
+            Intent mainIntent = new Intent(getActivity(), MainActivity.class);
+            startActivity(mainIntent);
+        }
+        getActivity().finish();
     }
 }
