@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.FrameLayout;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -27,6 +28,15 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         setFragment(new SignInFragment());
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            SignUpFragment.disableClosebtn = false;
+            SignInFragment.disableClosebtn = false;
+        }
+        return super.onKeyDown(keyCode,event);
     }
 
     private void setFragment(Fragment fragment) {
