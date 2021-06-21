@@ -23,6 +23,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -60,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
     private Window window;
     private Toolbar toolbar;
     private Dialog signInDialog;
+    private FirebaseUser currentUser;
+
+    public static DrawerLayout drawer;
 
     @SuppressLint("WrongConstant")
     @Override
@@ -67,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         actionbarLogo = findViewById(R.id.tv_actionbar_logo1);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
@@ -99,12 +104,7 @@ public class MainActivity extends AppCompatActivity {
             setFragment(new HomeFragment(), HOME_FRAGMENT);
 
         }
-        if(currentUser == null){
-            navigationView.getMenu().getItem(navigationView.getMenu().size() -1).setEnabled(false);
-        }
-        else {
-            navigationView.getMenu().getItem(navigationView.getMenu().size() -1).setEnabled(true);
-        }
+
 
         signInDialog = new Dialog(MainActivity.this);
         signInDialog.setContentView(R.layout.sign_in_dialog);
@@ -164,7 +164,10 @@ public class MainActivity extends AppCompatActivity {
                     } else if (id == R.id.nav_setting) {
 
                     } else if (id == R.id.nav_logout) {
-
+                        FirebaseAuth.getInstance().signOut();
+                        Intent registerIntent = new Intent(MainActivity.this,RegisterActivity.class);
+                        startActivity(registerIntent);
+                        finish();
                     } else if (id == R.id.nav_share) {
 
                     } else if (id == R.id.nav_help) {
@@ -203,6 +206,19 @@ public class MainActivity extends AppCompatActivity {
         };
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(navListener);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if(currentUser == null){
+            navigationView.getMenu().getItem(navigationView.getMenu().size() -1).setEnabled(false);
+        }
+        else {
+            navigationView.getMenu().getItem(navigationView.getMenu().size() -1).setEnabled(true);
+        }
 
     }
 
