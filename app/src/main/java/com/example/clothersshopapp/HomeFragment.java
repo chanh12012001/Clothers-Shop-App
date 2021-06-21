@@ -1,5 +1,6 @@
 package com.example.clothersshopapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment {
     private ImageView noInternetConnection;
     private Button retryBtn;
 
+    @SuppressLint("WrongConstant")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -116,6 +118,7 @@ public class HomeFragment extends Fragment {
          networkInfo = connectivityManager.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected() == true) {
+            MainActivity.drawer.setDrawerLockMode(0);
             noInternetConnection.setVisibility(View.GONE);
             retryBtn.setVisibility(View.GONE);
             categoryRecyclerView.setVisibility(View.VISIBLE);
@@ -139,6 +142,7 @@ public class HomeFragment extends Fragment {
             }
 
         } else {
+            MainActivity.drawer.setDrawerLockMode(1);
             categoryRecyclerView.setVisibility(View.GONE);
             homePageRecyclerView.setVisibility(View.GONE);
             Glide.with(this).load(R.drawable.no_internet_connection).into(noInternetConnection);
@@ -165,12 +169,14 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    @SuppressLint("WrongConstant")
     private void reloadPage(){
             networkInfo = connectivityManager.getActiveNetworkInfo();
             categoryModelList.clear();
             lists.clear();
             loadedCategoriesNames.clear();
             if (networkInfo != null && networkInfo.isConnected() == true) {
+                MainActivity.drawer.setDrawerLockMode(0);
                 noInternetConnection.setVisibility(View.GONE);
                 retryBtn.setVisibility(View.GONE);
                 categoryRecyclerView.setVisibility(View.VISIBLE);
@@ -185,6 +191,7 @@ public class HomeFragment extends Fragment {
                 loadFragmentData(homePageRecyclerView, getContext(),0, "Home");
             }
             else {
+                MainActivity.drawer.setDrawerLockMode(1);
                 Toast.makeText(getContext(),"No Connection!",Toast.LENGTH_SHORT).show();
                 categoryRecyclerView.setVisibility(View.GONE);
                 homePageRecyclerView.setVisibility(View.GONE);

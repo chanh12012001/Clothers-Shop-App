@@ -29,6 +29,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -37,7 +39,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.clothersshopapp.DBqueries.currentUser;
+
 import static com.example.clothersshopapp.MainActivity.showCart;
 import static com.example.clothersshopapp.R.id.btn_add_to_cart;
 import static com.example.clothersshopapp.RegisterActivity.setSignUpFragment;
@@ -98,6 +100,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     ///////////Coupen dialog////////////
 
     private Dialog signInDialog;
+    private FirebaseUser currentUser;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -142,7 +145,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         List<String> productImages = new ArrayList<>();
 
-        firebaseFirestore.collection("Products").document("1BzhJE7oDo9FxzZ08Wsy").get() .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        firebaseFirestore.collection("Products").document(getIntent().getStringExtra("PRODUCT_ID")).get() .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()) {
@@ -368,9 +371,19 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
         ////signinDiaolog///
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser == null){
             coupenRedemption.setVisibility(View.GONE);
+        }else{
+            coupenRedemption.setVisibility(View.VISIBLE);
         }
+
     }
 
     public static void showDialogRecyclerView() {
