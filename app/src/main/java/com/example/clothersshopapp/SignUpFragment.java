@@ -27,6 +27,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -234,21 +236,37 @@ public class SignUpFragment extends BaseFragment {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
 
-                                    Map<Object, String> userData = new HashMap<>();
+                                    Map<String,Object> userData = new HashMap<>();
                                     userData.put("firstname", firstName.getText().toString());
                                     userData.put("lastname", lastName.getText().toString());
 
-                                    firebaseFirestore.collection("USERS")
-                                            .add(userData)
-                                            .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                    firebaseFirestore.collection("USERS").document(firebaseAuth.getUid())
+                                            .set(userData)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
-                                                public void onComplete(@NonNull Task<DocumentReference> task) {
+                                                public void onComplete(@NonNull @NotNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
-                                                        Intent mainIntent = new Intent(getActivity(), MainActivity.class);
-                                                        startActivity(mainIntent);
-                                                        getActivity().finish();
+                                                        Map<String,Object> listSize = new HashMap<>();
+                                                        listSize.put("list_size", (long) 0);
+
+                                                        firebaseFirestore.collection("USERS").document(firebaseAuth.getUid()).collection("USER_DATA").document("MY_WISHLIST").set(listSize).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull @NotNull Task<Void> task) {
+                                                                if(task.isSuccessful()){
+                                                                    Intent mainIntent = new Intent(getActivity(), MainActivity.class);
+                                                                    startActivity(mainIntent);
+                                                                    getActivity().finish();
+
+                                                                }else{
+                                                                    hideProgressDialog();
+                                                                    String Error = task.getException().getMessage();
+                                                                    Toast.makeText(getActivity(), Error, Toast.LENGTH_SHORT).show();
+                                                                }
+                                                            }
+                                                        });
+
                                                     } else {
-                                                        hideProgressDialog();
+
                                                         String Error = task.getException().getMessage();
                                                         Toast.makeText(getActivity(), Error, Toast.LENGTH_SHORT).show();
                                                     }
