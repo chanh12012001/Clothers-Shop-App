@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
 
     private List<WishlistModel> wishlistModelList;
     private Boolean wishlist;
+    private int lastPosition = -1;
 
     public WishlistAdapter(List<WishlistModel> wishlistModelList, Boolean wishlist) {
         this.wishlistModelList = wishlistModelList;
@@ -36,6 +39,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+        String productId = wishlistModelList.get(position).getProductId();
         String resource = wishlistModelList.get(position).getProductImage();
         String title = wishlistModelList.get(position).getProductTitle();
         long freeCoupens = wishlistModelList.get(position).getFreeCoupens();
@@ -45,7 +49,13 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
         String cuttedPrice = wishlistModelList.get(position).getCuttedPrice();
         boolean paymentMethod = wishlistModelList.get(position).isCOD();
 
-        viewHolder.setData(resource, title, freeCoupens, rating, totalRatings, productPrice, cuttedPrice, paymentMethod);
+        viewHolder.setData(productId, resource, title, freeCoupens, rating, totalRatings, productPrice, cuttedPrice, paymentMethod, position);
+
+        if(lastPosition < position) {
+            Animation animation = AnimationUtils.loadAnimation(viewHolder.itemView.getContext(), R.anim.fade_in);
+            viewHolder.itemView.setAnimation(animation);
+            lastPosition = position;
+        }
     }
 
     @Override
@@ -82,8 +92,8 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
             deleteBtn = itemView.findViewById(R.id.btn_remove_wishlist_item);
         }
 
-        private void setData(String resource, String title, long freeCoupensNo, String averageRate, long totalRatingsNo, String price, String cuttedPriceValue, boolean COD) {
-            Glide.with(itemView.getContext()).load(resource).apply(new RequestOptions().placeholder(R.drawable.ic_baseline_image_24)).into(productImage);
+        private void setData(String productId, String resource, String title, long freeCoupensNo, String averageRate, long totalRatingsNo, String price, String cuttedPriceValue, boolean COD, int index ) {
+            Glide.with(itemView.getContext()).load(resource).apply(new RequestOptions().placeholder(R.drawable.ic_baseline_image_24)).into(productImage); //part 63 R.mimap.icon_placeholder
             productTitle.setText(title);
             if (freeCoupensNo != 0) {
                 coupenIcon.setVisibility(View.VISIBLE);
@@ -117,13 +127,17 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.ViewHo
             deleteBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(),"delete",Toast.LENGTH_SHORT).show();
+                    if (ProductDetailsActivity.running_wishlist_query) {
+                        ProductDetailsActivity.running_wishlist_query = true;
+                        DBqueries.removeFromWishList(index, itemView.getContext());
+                    }
                 }
             });
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent productDetailsIntent = new Intent(itemView.getContext(), ProductDetailsActivity.class);
+                    productDetailsIntent.putExtra("PRODUCT_ID", productId);
                     itemView.getContext().startActivity(productDetailsIntent);
                 }
             });

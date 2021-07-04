@@ -24,12 +24,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SignUpFragment extends BaseFragment {
@@ -246,27 +250,55 @@ public class SignUpFragment extends BaseFragment {
                                                 @Override
                                                 public void onComplete(@NonNull @NotNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
-                                                        Map<String,Object> listSize = new HashMap<>();
-                                                        listSize.put("list_size", (long) 0);
 
-                                                        firebaseFirestore.collection("USERS").document(firebaseAuth.getUid()).collection("USER_DATA").document("MY_WISHLIST").set(listSize).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                            @Override
-                                                            public void onComplete(@NonNull @NotNull Task<Void> task) {
-                                                                if(task.isSuccessful()){
-                                                                    Intent mainIntent = new Intent(getActivity(), MainActivity.class);
-                                                                    startActivity(mainIntent);
-                                                                    getActivity().finish();
+                                                        CollectionReference userDataReference = firebaseFirestore.collection("USERS").document(firebaseAuth.getUid()).collection("USER_DATA");
 
-                                                                }else{
-                                                                    hideProgressDialog();
-                                                                    String Error = task.getException().getMessage();
-                                                                    Toast.makeText(getActivity(), Error, Toast.LENGTH_SHORT).show();
+                                                        // MAPS
+                                                        Map<String,Object> wishlistMap = new HashMap<>();
+                                                        wishlistMap.put("list_size", (long) 0);
+
+                                                        Map<String,Object> ratingsMap = new HashMap<>();
+                                                        ratingsMap.put("list_size", (long) 0);
+
+                                                        Map<String,Object> cartMap = new HashMap<>();
+                                                        cartMap.put("list_size", (long) 0);
+
+                                                        // MAPS
+
+                                                        final List<String> documentNames = new ArrayList<>();
+                                                        documentNames.add("MY_WISHLIST");
+                                                        documentNames.add("MY_RATINGS");
+                                                        documentNames.add("MY_CART");
+
+                                                        List<Map<String,Object>> documentFields = new ArrayList<>();
+                                                        documentFields.add(wishlistMap);
+                                                        documentFields.add(ratingsMap);
+                                                        documentFields.add(cartMap);
+
+                                                        for (int x = 0; x < documentNames.size(); x++) {
+
+                                                            final int finalX = x;
+                                                            userDataReference.document(documentNames.get(x))
+                                                                    .set(documentFields.get(x)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull @NotNull Task<Void> task) {
+                                                                    if(task.isSuccessful()){
+                                                                        if (finalX == documentNames.size() -1) {
+                                                                            mainIntent();
+                                            //                                Intent mainIntent = new Intent(getActivity(), MainActivity.class);
+                                            //                                startActivity(mainIntent);
+                                            //                                getActivity().finish();
+                                                                        }
+                                                                    }else{
+                                                                        hideProgressDialog();
+                                                                        String Error = task.getException().getMessage();
+                                                                        Toast.makeText(getActivity(), Error, Toast.LENGTH_SHORT).show();
+                                                                    }
                                                                 }
-                                                            }
-                                                        });
+                                                            });
 
+                                                        }
                                                     } else {
-
                                                         String Error = task.getException().getMessage();
                                                         Toast.makeText(getActivity(), Error, Toast.LENGTH_SHORT).show();
                                                     }
