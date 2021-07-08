@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/blue_bg"
-        android:orientation="horizontal"
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+    </LinearLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
-        android:layout_width="100dp"
+        android:id="@+id/profile_pic"
+        android:layout_width="103dp"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
         android:elevation="6dp"
-        android:src="@drawable/ic_profile_navigition"
-        app:civ_border_color="@color/white"
+        android:src="@mipmap/user_blue"
+        app:civ_border_color="@color/colorAccent"
         app:civ_border_width="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5">
+    </de.hdodenhof.circleimageview.CircleImageView>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayout6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -41,42 +43,42 @@
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageView"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/profile_pic">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Nguyễn Văn B"
+            android:text="John Doe"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textColor="#000000"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/user_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="vannguyen@gmail.com"
+            android:text="johndoe@gmail.com"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="#000000" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton4"
+        android:id="@+id/settings_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:clickable="true"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        android:tint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout2"
-        app:srcCompat="@drawable/ic_setting" />
-    /
+        app:layout_constraintTop_toTopOf="@+id/linearLayout6"
+        android:src="@drawable/setting"
+        android:focusable="true"
+        android:contentDescription="@string/todo">
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

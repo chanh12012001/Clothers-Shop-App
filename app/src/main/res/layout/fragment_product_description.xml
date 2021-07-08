@@ -3,14 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductDescriptionFragment">
+    tools:context="com.myclothershopapp.ProductDescriptionFragment">
 
-
+    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/tv_product_description"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_12sdp"
+        android:layout_margin="16dp"
         android:textSize="@dimen/font_size_normal"
-        android:text="@string/lbl_description" />
+        android:textColor="#000000"
+        android:text="ERXn nljlk jhvghjgfcgvgmbjh,k.jnnoilk;lk;mf  i  oijoi wer oihroiegnlriltlgriubekubvvdkudnrlirg  y  hj e    iihuih hierknfer egtrhyjjyy juk ykiglufyk ufy uf klfuyfkyti ktdktd tyktykdtkd ktuktktd kt  udk tukuk dtkk  k tk k  ERXn nljlk jhvghjgfcgvgmbjh,k.jnnoilk;lk;mf    i  oijoi wer oihroiegnlriltlgriubekubvvdkudnrlirg  y  hj e  iihuih hierknfer egtrhyjjyy juk ykiglufyk ufy uf klfuyfkyti ktdktd tyktykdtkd ktuktktd kt  udk tukuk dtkk  k tk k  ERXn nljlk jhvghjgfcgvgmbjh,k.jnnoilk;lk;mf    i  oijoi wer oihroiegnlriltlgriubekubvvdkudnrlirg  y  hj e  iihuih hierknfer egtrhyjjyy juk ykiglufyk ufy uf klfuyfkyti ktdktd tyktykdtkd ktuktktd kt  udk tukuk dtkk  k tk k  ERXn nljlk jhvghjgfcgvgmbjh,k.jnnoilk;lk;mf    i  oijoi wer oihroiegnlriltlgriubekubvvdkudnrlirg  y  hj e   iihuih hierknfer egtrhyjjyy juk ykiglufyk ufy uf klfuyfkyti ktdktd tyktykdtkd ktuktktd kt  udk tukuk dtkk  k tk k  " />
+
 </FrameLayout>

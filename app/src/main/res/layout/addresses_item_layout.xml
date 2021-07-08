@@ -3,65 +3,63 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+    android:background="@drawable/slider_background"
     android:elevation="3dp"
-    android:layout_marginBottom="@dimen/_8sdp"
+    android:layout_margin="8dp"
+    android:foreground="?attr/selectableItemBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tv_name_address_item"
+        android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Full name"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="20sp"
+        android:text="Full Name"
+        android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/icon_view_address_item"
+        app:layout_constraintEnd_toStartOf="@+id/icon_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_address_item"
+        android:id="@+id/address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="Address"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_size_normal"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_address_item" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <TextView
-        android:id="@+id/tv_pincode_address_item"
+        android:id="@+id/pincode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:text="Pincode"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_size_normal"
+        android:text="pincode"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address_item" />
+        app:layout_constraintTop_toBottomOf="@+id/address" />
 
     <ImageView
-        android:id="@+id/icon_view_address_item"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_checkmark"
+        android:id="@+id/icon_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:srcCompat="@drawable/check" />
 
     <LinearLayout
         android:id="@+id/option_container"
@@ -69,34 +67,36 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_discount_color"
-        android:backgroundTint="#EAE7E7"
+        android:background="@color/recyclerviewBackground"
         android:elevation="3dp"
         android:orientation="vertical"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_8sdp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
             android:text="Edit"
             android:textAlignment="center"
-            android:textSize="@dimen/font_size_normal" />
+            android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/textView14"
-            android:layout_width="match_parent"
+            android:id="@+id/remove"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingStart="@dimen/_8sdp"
-            android:paddingEnd="@dimen/_8sdp"
-            android:paddingBottom="@dimen/_8sdp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
             android:text="Remove"
             android:textAlignment="center"
-            android:textSize="@dimen/font_size_normal" />
+            android:textSize="12sp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

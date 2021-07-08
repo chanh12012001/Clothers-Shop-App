@@ -1,91 +1,63 @@
 <resources>
-    <string name="app_name">mShop</string>
+    <string name="app_name">m-Shop</string>
     <string name="text_todo">Todo</string>
 
-    <string name="hint_first_name">First Name</string>
-    <string name="hint_last_name">Last name</string>
-    <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
-    <string name="hint_confirm_password">Confirm Password</string>
-    <string name="lbl_forgot">Forgot ?</string>
-    <string name="lbl_sign_in">Sign In</string>
-    <string name="lbl_sign_up">Sign Up</string>
-    <string name="lbl_sign_in_with">Sign In with</string>
-    <string name="lbl_loading">Loading</string>
-    <string name="check_email">Invalid Email!</string>
-    <string name="check_confirm_password">Password doesn\'t matched!</string>
-    <string name="check_user_password">Incorrect email or password!</string>
-    <string name="lbl_dismiss"><u>Dismiss</u></string>
-    <string name="lbl_forgot_password">Forgot Password</string>
-    <string name="forgot_password_title_description">Enter e-mail address, we will send you a email to reset your password</string>
-    <string name="lbl_reset_pasword">Reset password</string>
-
-    <string name="check_email_after_click_resetpassword">Check your Inbox after clicking the button above.</string>
-    <string name="lbl_goBack">&lt;&lt; Go Back</string>
-    <string name="hint_mail_forgot_password">Email registered</string>
-    <string name="enter_email">Please enter email!</string>
-    <string name="sent_email_successful">Recovery email sent successfully! Check your Inbox.</string>
-
-    <string name="lbl_google">Google</string>
-    <string name="lbl_facebook">Facebook</string>
-    <string name="title_activity_main">MainActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 
-    <string name="action_searching">Searching</string>
-    <string name="action_notification">Notification</string>
-    <string name="action_shopping_cart">Shopping Cart</string>
-
-    <string name="text_guest_user">Guest User</string>
-
-    <string name="menu_mymall">My Mall</string>
     <string name="menu_home">Home</string>
-    <string name="menu_mycart">My Cart</string>
-    <string name="menu_myrewards">My rewards</string>
-    <string name="menu_myaccount">My Account</string>
-    <string name="menu_myorder">My Orders</string>
-    <string name="menu_wishlist">Wishlist</string>
-    <string name="menu_setting">Setting</string>
-    <string name="menu_logout">Logout</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
-    <string name="menu_help">Help</string>
-    <string name="menu_about_us">About us</string>
+    <string name="menu_send">Send</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="todo">TODO</string>
 
-    <string name="deal_of_the_day">Deal of the day!</string>
-    <string name="lbl_view_all"><u>View all</u></string>
-
-    <string name="lbl_vourcher">Vourcher of Shop</string>
-    <string name="lbl_apply">Apply</string>
-
-    <string name="lbl_description">
-        "    - Áo phông Polo nam trắng là sự lựa chọn hoàn hảo cho các chàng trai. Áo 3 màu trung tính rất dễ mặc, form áo vừa vặn cơ thể.
-     - Màu sắc trung tính và phối màu tuyệt vời mà rất ít áo polo có tạo nên sự dễ dàng trong việc phối đồ và tạo ra cho mình nhiều phong cách khác nhau.
-     - Áo được làm từ chất liệu cá sấu cotton co giãn với bề mặt vải mềm mại, thấm hút mồ hôi tốt tạo cảm giác thoải mái, thoáng mát cho người mặc.
-     - Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.
-     -Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form"
-    </string>
-
-    <string name="lbl_rating">Ratings</string>
-    <string name="lbl_your_ratings">Your ratings</string>
-
-    <string name="lbl_buy_now">BUY NOW</string>
-    <string name="lbl_continue">CONTINUE</string>
-    <string name="lbl_total_amount">Total amount</string>
-    <string name="lbl_offers_applied">Offers applied</string>
-    <string name="lbl_coupens_applied">Coupens applied</string>
-    <string name="lbl_product_quantity">Qty: 1</string>
-    <string name="lbl_price_detail">PRICE DETAILS</string>
-
-    <string name="lbl_provisional">Provisional</string>
-    <string name="lbl_discount">Discount</string>
-    <string name="lbl_Delivery">Delivery</string>
-    <string name="lbl_free">free</string>
-
-    <string-array name="Gender">
-        <item>Male</item>
-        <item>Femal</item>
+    <string-array name="india_states">
+        <item>Andaman and Nicobar Islands</item>
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chandigarh</item>
+        <item>Chhattisgarh</item>
+        <item>Dadra and Nagar Haveli</item>
+        <item>Daman and Diu</item>
+        <item>Delhi</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jammu and Kashmir</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Lakshadweep</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Orissa</item>
+        <item>Pondicherry</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttaranchal</item>
+        <item>Uttar Pradesh</item>
+        <item>West Bengal</item>
     </string-array>
+
 </resources>

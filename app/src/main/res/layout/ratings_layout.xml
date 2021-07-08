@@ -4,140 +4,156 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:elevation="3dp"
+    android:paddingBottom="30dp"
+    android:layout_marginBottom="16dp"
+    android:layout_marginTop="8dp"
+    android:background="@color/colorAccent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/lbl_rating"
-        android:layout_marginStart="@dimen/spacing_standard_new"
-        android:layout_marginTop="@dimen/spacing_standard_new"
-        android:textSize="@dimen/font_size_xxlarge"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Ratings "
+        android:textColor="#000000"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/textColorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/slider_background"
+        android:gravity="center"
         android:orientation="horizontal"
+        android:padding="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <TextView
-            android:id="@+id/tv_average_rating"
+            android:id="@+id/average_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="2dp"
             android:layout_weight="1"
             android:text="4.5"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="38sp" />
+            android:textColor="#000000"
+            android:textSize="35sp"
+            android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/iv_everage_rating_star"
-            android:layout_width="@dimen/_27sdp"
-            android:layout_height="@dimen/_27sdp"
+            android:id="@+id/average_rating_star"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/spacing_standard"
+            android:layout_margin="8dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_star" />
+            android:src="@drawable/star_black_"
+            android:tint="#000000"
+            tools:ignore="UseAppTint" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_total_ratings"
+        android:id="@+id/total_ratings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="27 ratings"
-        android:textSize="@dimen/font_size_normal"
+        android:text="27 ratings "
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <LinearLayout
         android:id="@+id/ratings_progressbar_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorAccent"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/tv_total_ratings">
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/total_ratings">
 
         <ProgressBar
             android:id="@+id/progressBar1"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_2sdp"
-            android:layout_marginBottom="@dimen/_2sdp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:layout_weight="1"
             android:max="100"
             android:progress="50"
-            android:progressTint="@color/successGreen"></ProgressBar>
+            android:progressTint="#2ECC71" />
 
         <ProgressBar
             android:id="@+id/progressBar2"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_2sdp"
-            android:layout_marginBottom="@dimen/_2sdp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:layout_weight="1"
             android:max="100"
             android:progress="50"
-            android:progressTint="@color/successGreen"></ProgressBar>
+            android:progressTint="#2ECC71" />
 
         <ProgressBar
             android:id="@+id/progressBar3"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_2sdp"
-            android:layout_marginBottom="@dimen/_2sdp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:layout_weight="1"
             android:max="100"
             android:progress="50"
-            android:progressTint="#FFA92A"></ProgressBar>
+            android:progressTint="#ffbb00" />
 
         <ProgressBar
             android:id="@+id/progressBar4"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_2sdp"
-            android:layout_marginBottom="@dimen/_2sdp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:layout_weight="1"
             android:max="100"
             android:progress="50"
-            android:progressTint="#FBA322"></ProgressBar>
+            android:progressTint="#ffbb00" />
 
         <ProgressBar
             android:id="@+id/progressBar5"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_2sdp"
-            android:layout_marginBottom="@dimen/_2sdp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:layout_weight="1"
             android:max="100"
             android:progress="50"
-            android:progressTint="@color/red_ratings"></ProgressBar>
-
+            android:progressTint="@color/colorPrimary" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linear_layout"
+        android:id="@+id/ratings_container"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
@@ -147,303 +163,317 @@
         app:layout_constraintTop_toTopOf="@+id/ratings_progressbar_container">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_ratings_5s"
+                android:id="@+id/rating1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:paddingLeft="8dp"
                 android:text="5"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/font_size_normal" />
+                android:textColor="#000000"
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/iv_ratings_5s"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:id="@+id/rating_star1"
+                android:layout_width="10dp"
+                android:layout_height="14dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_star" />
+                android:src="@mipmap/blackstar" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_ratings_4s"
+                android:id="@+id/rating2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:paddingLeft="8dp"
                 android:text="4"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/font_size_normal" />
+
+                android:textColor="#000000"
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/iv_ratings_4s"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:id="@+id/rating_star2"
+                android:layout_width="10dp"
+                android:layout_height="14dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_star" />
+                android:src="@mipmap/blackstar" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_ratings_3s"
+                android:id="@+id/rating3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:paddingLeft="8dp"
                 android:text="3"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/font_size_normal" />
+                android:textColor="#000000"
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/iv_ratings_3s"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:id="@+id/rating_star3"
+                android:layout_width="10dp"
+                android:layout_height="14dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_star" />
+                android:src="@mipmap/blackstar" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_ratings_2s"
+                android:id="@+id/rating4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:paddingLeft="8dp"
                 android:text="2"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/font_size_normal" />
+                android:textColor="#000000"
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/iv_ratings_2s"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:id="@+id/rating_star4"
+                android:layout_width="10dp"
+                android:layout_height="14dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_star" />
+                android:src="@mipmap/blackstar" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_ratings_1s"
+                android:id="@+id/rating5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:paddingLeft="8dp"
                 android:text="1"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/font_size_normal" />
+                android:textColor="#000000"
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/iv_ratings_5"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:id="@+id/rating_star5"
+                android:layout_width="10dp"
+                android:layout_height="14dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_margin="8dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_star" />
+                android:src="@mipmap/blackstar" />
+
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ratings_number_container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:id="@+id/ratings_numbers_container"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
         android:orientation="vertical"
-        android:paddingRight="@dimen/spacing_medium"
-        android:paddingLeft="@dimen/spacing_medium"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/ratings_progressbar_container"
         app:layout_constraintStart_toEndOf="@+id/ratings_progressbar_container"
         app:layout_constraintTop_toTopOf="@+id/ratings_progressbar_container">
 
         <TextView
-            android:id="@+id/tv_ratings_number_5s"
+            android:id="@+id/textView7"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="12"
-            android:paddingTop="@dimen/_1sdp"
-            android:paddingBottom="@dimen/_1sdp"
             android:textAlignment="center"
-            android:textSize="@dimen/font_size_small" />
+            android:textSize="10sp" />
 
         <TextView
-            android:id="@+id/tv_ratings_number_4s"
+            android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="6"
-            android:paddingTop="@dimen/_1sdp"
-            android:paddingBottom="@dimen/_1sdp"
+            android:text="12"
             android:textAlignment="center"
-            android:textSize="@dimen/font_size_small" />
+            android:textSize="10sp" />
 
         <TextView
-            android:id="@+id/tv_ratings_number_3s"
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="15"
-            android:paddingTop="@dimen/_1sdp"
-            android:paddingBottom="@dimen/_1sdp"
+            android:text="0"
             android:textAlignment="center"
-            android:textSize="@dimen/font_size_small" />
+            android:textSize="10sp" />
 
         <TextView
-            android:id="@+id/tv_ratings_number_2s"
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="12"
+            android:textAlignment="center"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="8"
-            android:paddingTop="@dimen/_1sdp"
-            android:paddingBottom="@dimen/_1sdp"
             android:textAlignment="center"
-            android:textSize="@dimen/font_size_small" />
-
-        <TextView
-            android:id="@+id/tv_ratings_number_1s"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="3"
-            android:paddingTop="@dimen/_1sdp"
-            android:paddingBottom="@dimen/_1sdp"
-            android:textAlignment="center"
-            android:textSize="@dimen/font_size_small" />
+            android:textSize="10sp" />
     </LinearLayout>
 
     <View
-        android:id="@+id/divider2"
+        android:id="@+id/divider4"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="@+id/ratings_number_container"
-        app:layout_constraintStart_toStartOf="@+id/ratings_number_container"
-        app:layout_constraintTop_toBottomOf="@+id/ratings_number_container" />
+        app:layout_constraintEnd_toEndOf="@+id/ratings_numbers_container"
+        app:layout_constraintStart_toStartOf="@+id/ratings_numbers_container"
+        app:layout_constraintTop_toBottomOf="@+id/ratings_numbers_container" />
 
     <TextView
-        android:id="@+id/tv_sum_rating_number"
+        android:id="@+id/total_ratings_figure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="41"
-        app:layout_constraintEnd_toEndOf="@+id/ratings_number_container"
-        app:layout_constraintStart_toStartOf="@+id/ratings_number_container"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+        android:layout_marginTop="4dp"
+        android:text="30"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/ratings_numbers_container"
+        app:layout_constraintStart_toStartOf="@+id/ratings_numbers_container"
+        app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
     <TextView
         android:id="@+id/tv_your_ratings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_standard_new"
-        android:text="@string/lbl_your_ratings"
-        android:textSize="@dimen/font_size_normal"
+        android:layout_marginStart="16dp"
+        android:text="Your ratings "
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_sum_rating_number" />
+        app:layout_constraintTop_toBottomOf="@+id/total_ratings_figure" />
 
     <LinearLayout
         android:id="@+id/rate_now_container"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_35sdp"
-        android:layout_marginTop="@dimen/spacing_standard"
-        android:layout_marginEnd="@dimen/_35sdp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_your_ratings">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:src="@drawable/star_black_"
+            android:tint="#C7BEBE"
+            tools:ignore="UseAppTint" />
 
         <ImageView
-            android:id="@+id/iv_star1"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
-            android:paddingTop="@dimen/_6sdp"
-            android:paddingBottom="@dimen/_6sdp"
-            app:srcCompat="@drawable/ic_star"
-            app:tint="#bebebe" />
+            android:tint="#C7BEBE"
+            android:src="@drawable/star_black_"
+            tools:ignore="UseAppTint" />
 
         <ImageView
-            android:id="@+id/iv_star2"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
-            android:paddingTop="@dimen/_6sdp"
-            android:paddingBottom="@dimen/_6sdp"
-            app:srcCompat="@drawable/ic_star"
-            app:tint="#bebebe" />
+            android:tint="#C7BEBE"
+            android:src="@drawable/star_black_"
+            tools:ignore="UseAppTint" />
 
         <ImageView
-            android:id="@+id/iv_star3"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
-            android:paddingTop="@dimen/_6sdp"
-            android:paddingBottom="@dimen/_6sdp"
-            app:srcCompat="@drawable/ic_star"
-            app:tint="#bebebe" />
+            android:tint="#C7BEBE"
+            android:src="@drawable/star_black_"
+            tools:ignore="UseAppTint" />
 
         <ImageView
-            android:id="@+id/iv_star4"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
-            android:paddingTop="@dimen/_6sdp"
-            android:paddingBottom="@dimen/_6sdp"
-            app:srcCompat="@drawable/ic_star"
-            app:tint="#bebebe" />
+            android:tint="#C7BEBE"
+            android:src="@drawable/star_black_"
+            tools:ignore="UseAppTint" />
 
-        <ImageView
-            android:id="@+id/iv_star5"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_weight="1"
-            android:paddingTop="@dimen/_6sdp"
-            android:paddingBottom="@dimen/_6sdp"
-            app:srcCompat="@drawable/ic_star"
-            app:tint="#bebebe" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

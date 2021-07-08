@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/product_details_container"
-    android:layout_margin="@dimen/_10sdp"
+    android:background="@color/colorAccent"
+    android:elevation="3dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tv_product_details_title"
-        android:layout_width="match_parent"
+        android:id="@+id/product_details_title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="#d3d3d2"
         android:padding="16dp"
+        android:text="Product Details"
+        android:textColor="#000000"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:text="Product Detail"
-        android:background="@color/color_grid_product_layout"
-        android:textSize="@dimen/font_size_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_product_details_body"
-        android:layout_width="wrap_content"
+        android:id="@+id/product_details_body"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/lbl_description"
-        android:textSize="@dimen/font_size_normal"
-        android:padding="@dimen/spacing_standard"
+        android:padding="16dp"
+        android:text="gnlrihuyekubvvdkuvgmbjh,k.jnnoilk;lk;mfi  oijoi wer oihroiegnlriltlgriubekubvvdkudnrlirg  y  hj e  iihuih hierknfer egtrhyjjyy juk ykiglufyk ufy uf klfuyfkyti ktdktd tyktykdtkd ktuktktd kt  udk tukuk dtkk  k tk k  ERXn nljlk jhvghjgfcgvgmbjh,k.jnnoilk;lk;mf    i  oijoi wer oihroiegnlriltlgriubekubvvdkudnrlirg  y  hj e   iihuih hierknfer egtrhyjjyy juk ykiglufyk ufy uf klfuyfkyti ktdktd tyktykdtkd ktuktktd kt  udk tukuk dtkk  k tk k  "
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_product_details_title" />
+        app:layout_constraintTop_toBottomOf="@+id/product_details_title" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,77 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:elevation="4dp"
-    android:layout_margin="16dp"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/slider_background"
+    android:elevation="4dp"
+    android:layout_margin="16dp">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Thông tin"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+        android:text="My Addresses"
         android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+    </TextView>
 
     <Button
-        android:id="@+id/view_all_addresses_btn"
+        android:id="@+id/view_all_address_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:stateListAnimator="@null"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccent"
         android:text="View all"
-        android:textColor="@color/google_red"
-        android:background="@color/white"
+        android:textSize="12sp"
+        android:stateListAnimator="@null"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+    </Button>
 
     <TextView
-        android:id="@+id/addresses_fullname"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:textColor="@color/black"
-        android:textSize="16dp"
+        android:text="Full Name"
+        android:textSize="12sp"
+        android:textColor="#000000"
         android:textStyle="bold"
-        android:text="Họ tên"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" >
+    </TextView>
 
     <TextView
-        android:id="@+id/addresses"
+        android:id="@+id/address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Địa chỉ"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        android:textStyle="bold"
+        android:text="Address"
+        android:textSize="12sp"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addresses_fullname" />
+        app:layout_constraintTop_toBottomOf="@+id/name" >
+    </TextView>
 
     <TextView
-        android:id="@+id/addresses_pincode"
+        android:id="@+id/pincode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:text="Mã"
-        android:textColor="@color/black"
-        android:textSize="16dp"
+        android:text="pincode"
+        android:textSize="12sp"
+        android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addresses" />
+        app:layout_constraintTop_toBottomOf="@+id/address" >
+    </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

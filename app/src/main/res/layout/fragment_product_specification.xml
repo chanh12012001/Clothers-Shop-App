@@ -5,9 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".ProductSpecificationFragment">
 
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_product_specification"
+        android:id="@+id/product_specification_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </FrameLayout>

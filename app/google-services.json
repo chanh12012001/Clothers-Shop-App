@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "665434250501",
-    "firebase_url": "https://myclothershops-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "myclothershops",
-    "storage_bucket": "myclothershops.appspot.com"
+    "project_number": "1048729347049",
+    "project_id": "my-clothers-shop-app",
+    "storage_bucket": "my-clothers-shop-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:665434250501:android:9ba70ba31773c8b55ceb6c",
+        "mobilesdk_app_id": "1:1048729347049:android:4fa2b31782267fb2d56178",
         "android_client_info": {
-          "package_name": "com.example.clothersshopapp"
+          "package_name": "com.myclothershopapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "665434250501-6gosfi03rfv7br1067eksclhi9qc8fbv.apps.googleusercontent.com",
+          "client_id": "1048729347049-thv213me2rkl1qj93l1nr4nv7dfum9pq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD0anCwZcZrBFuH20YQgp10oKSvnnwDJ3A"
+          "current_key": "AIzaSyAk1aBv4gHwm4Oht97rBYiu6ynGbcDfbbQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "665434250501-6gosfi03rfv7br1067eksclhi9qc8fbv.apps.googleusercontent.com",
+              "client_id": "1048729347049-thv213me2rkl1qj93l1nr4nv7dfum9pq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
