@@ -43,9 +43,6 @@ public class DeliveryActivity extends AppCompatActivity {
         deliveryRecyclerView.setLayoutManager(layoutManager);
 
         List<CartItemModel> cartItemModelList = new ArrayList<>();
-        cartItemModelList.add(new CartItemModel(0,R.drawable.img_horizontal_item1,"Áo khoác nam-đen-XL ",2,"250000đ","300000đ",1,0,0));
-        cartItemModelList.add(new CartItemModel(0,R.drawable.img_horizontal_item1,"Áo thun nam-trắng-XXL ",1,"100000đ","200000đ",1,1,0));
-        cartItemModelList.add(new CartItemModel(0,R.drawable.img_horizontal_item1,"Áo khoác nam-đen-XL ",2,"250000đ","300000đ",2,0,1));
         cartItemModelList.add(new CartItemModel(1,"600000đ","100000","free"));
 
         CartAdapter cartAdapter = new CartAdapter(cartItemModelList);

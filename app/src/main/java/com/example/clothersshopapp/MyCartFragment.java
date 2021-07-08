@@ -1,5 +1,6 @@
 package com.example.clothersshopapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -23,13 +24,23 @@ public class MyCartFragment extends Fragment {
 
     private RecyclerView cartItemsRecyclerView;
     private Button continueBtn;
-
+    private Dialog loadingDialog;
+    public static CartAdapter cartAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_my_cart, container, false);
+
+        ////loading dialog
+        loadingDialog = new Dialog(getContext());
+        loadingDialog.setContentView(R.layout.loading_progress_dialog);
+        loadingDialog.setCancelable(false);
+        loadingDialog.getWindow().setBackgroundDrawable(getContext().getDrawable(R.drawable.slider_background));
+        loadingDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        loadingDialog.show();
+        ////loading dialog
 
         cartItemsRecyclerView = view.findViewById(R.id.cart_item_recyclerview);
         continueBtn = view.findViewById(R.id.btn_cart_continue);
@@ -38,13 +49,14 @@ public class MyCartFragment extends Fragment {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         cartItemsRecyclerView.setLayoutManager(layoutManager);
 
-        List<CartItemModel> cartItemModelList = new ArrayList<>();
-        cartItemModelList.add(new CartItemModel(0,R.drawable.img_horizontal_item1,"Áo khoác nam-đen-XL ",2,"250000đ","300000đ",1,0,0));
-        cartItemModelList.add(new CartItemModel(0,R.drawable.img_horizontal_item1,"Áo thun nam-trắng-XXL ",1,"100000đ","200000đ",1,1,0));
-        cartItemModelList.add(new CartItemModel(0,R.drawable.img_horizontal_item1,"Áo khoác nam-đen-XL ",2,"250000đ","300000đ",2,0,1));
-        cartItemModelList.add(new CartItemModel(1,"600000đ","100000","free"));
+        if (DBqueries.cartItemModelList.size() == 0){
+            DBqueries.cartList.clear();
+            DBqueries.loadCartList(getContext(),loadingDialog,true);
+        } else {
+            loadingDialog.dismiss();
+        }
 
-        CartAdapter cartAdapter = new CartAdapter(cartItemModelList);
+        cartAdapter = new CartAdapter(DBqueries.cartItemModelList);
         cartItemsRecyclerView.setAdapter(cartAdapter);
         cartAdapter.notifyDataSetChanged();
 
@@ -55,7 +67,6 @@ public class MyCartFragment extends Fragment {
                 getContext().startActivity(deliveryIntent);
             }
         });
-
         return  view;
     }
 }

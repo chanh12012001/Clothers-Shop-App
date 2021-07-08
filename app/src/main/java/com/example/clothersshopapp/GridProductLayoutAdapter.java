@@ -57,7 +57,7 @@ public class GridProductLayoutAdapter extends BaseAdapter {
             TextView productPrice = view.findViewById(R.id.tv_price_horizontal_product);
             TextView productLocation = view.findViewById(R.id.tv_location_horizontal_product);
 
-            Glide.with(parent.getContext()).load(horizontalProductScrollModelList.get(position).getProductImage()).apply(new RequestOptions().placeholder(R.drawable.ic_baseline_image_24)).into(productImage);
+            Glide.with(parent.getContext()).load(horizontalProductScrollModelList.get(position).getProductImage()).apply(new RequestOptions().placeholder(R.drawable.ic_baseline_image_24)).into(productImage); //icon_placehodler
             productName.setText(horizontalProductScrollModelList.get(position).getProductName());
             productPrice.setText("₫"+horizontalProductScrollModelList.get(position).getProductPrice());
             productLocation.setText(horizontalProductScrollModelList.get(position).getProductLocation());

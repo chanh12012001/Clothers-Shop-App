@@ -165,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
                     } else if (id == R.id.nav_logout) {
                         FirebaseAuth.getInstance().signOut();
+                        DBqueries.clearData();
                         Intent registerIntent = new Intent(MainActivity.this,RegisterActivity.class);
                         startActivity(registerIntent);
                         finish();

@@ -23,13 +23,15 @@
 
     <TextView
         android:id="@+id/tv_product_title_cart_item"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:text="Áo thun Nam-Trắng-XXL"
-        android:textSize="@dimen/font_size_normal"
         android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/font_size_normal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_product"
         app:layout_constraintTop_toTopOf="parent" />
 
