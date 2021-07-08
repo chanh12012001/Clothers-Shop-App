@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddAddressActivity">
+
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout5"
@@ -13,21 +15,22 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"></androidx.appcompat.widget.Toolbar>
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:nestedScrollingEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,171 +39,158 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:orientation="vertical" >
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/img_locate"
-                tools:ignore="MissingConstraints" />
+                android:src="@mipmap/homeicon" />
 
             <EditText
-                android:id="@+id/tv_provinvial"
-                style="@style/EditTextStyle"
+                android:id="@+id/city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_standard"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/spacing_standard"
-                android:backgroundTint="#EDECEC"
-                android:hint="Tỉnh/Thành phố *"
+                android:ems="10"
                 android:inputType="textPersonName"
-                android:singleLine="true"
-                android:textColor="@color/textColorPrimary"></EditText>
+                android:hint="City*"
+                android:textSize="12sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/colorPrimary"/>
 
             <EditText
-                android:id="@+id/tv_district"
-                style="@style/EditTextStyle"
+                android:id="@+id/locality"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_standard"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/spacing_standard"
-                android:backgroundTint="#EDECEC"
-                android:hint="Quận/huyện *"
-                android:inputType="textPersonName"
-                android:singleLine="true"
-                android:textColor="@color/textColorPrimary"></EditText>
+                android:ems="10"
+                android:lines="3"
+                android:layout_marginTop="8dp"
+                android:gravity="start"
+                android:isScrollContainer="true"
+                android:inputType="textMultiLine"
+                android:hint="Locality, area or street*"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/colorPrimary"/>
 
             <EditText
-                android:id="@+id/tv_wards"
-                style="@style/EditTextStyle"
+                android:id="@+id/flat_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_standard"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/spacing_standard"
-                android:backgroundTint="#EDECEC"
-                android:hint="Phường xã *"
-                android:inputType="textPersonName"
-                android:singleLine="true"
-                android:textColor="@color/textColorPrimary"></EditText>
-
-            <EditText
-                android:id="@+id/tv_number_home"
-                style="@style/EditTextStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_standard"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/spacing_standard"
-                android:backgroundTint="#EDECEC"
-                android:hint="Số nhà, tên đường,.. *"
-                android:inputType="textPersonName"
-                android:singleLine="true"
-                android:textColor="@color/textColorPrimary"></EditText>
+                android:ems="10"
+                android:lines="3"
+                android:gravity="start"
+                android:isScrollContainer="true"
+                android:layout_marginTop="8dp"
+                android:inputType="textMultiLine"
+                android:hint="Flat No., building name*"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/colorPrimary"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:layout_marginStart="@dimen/spacing_standard"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/spacing_standard"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/tv_pincode"
-                    style="@style/EditTextStyle"
+                    android:id="@+id/pincode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_4sdp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#EDECEC"
-                    android:hint="Pincode *"
-                    android:inputType="textPersonName"
-                    android:singleLine="true"
-                    android:textColor="@color/textColorPrimary"></EditText>
-
-                <EditText
-                    android:id="@+id/tv_state"
-                    style="@style/EditTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_4sdp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#EDECEC"
-                    android:hint="State *"
                     android:inputType="number"
-                    android:singleLine="true"
-                    android:textColor="@color/textColorPrimary"></EditText>
+                    android:hint="Pincode*"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorPrimary"/>
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/state_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_background"
+                    android:backgroundTint="@color/recyclerviewBackground"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1" />
 
             </LinearLayout>
 
             <EditText
-                android:id="@+id/tv_name"
-                style="@style/EditTextStyle"
+                android:id="@+id/landmark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_standard"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/spacing_standard"
-                android:backgroundTint="#EDECEC"
-                android:hint="Tên người nhận *"
+                android:ems="10"
+                android:lines="2"
+                android:gravity="start"
+                android:layout_marginTop="8dp"
+                android:isScrollContainer="true"
+                android:inputType="textMultiLine"
+                android:hint="Landmark (optional)"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/colorPrimary"/>
+
+            <View
+                android:id="@+id/divider10"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
                 android:inputType="textPersonName"
-                android:singleLine="true"
-                android:textColor="@color/textColorPrimary"></EditText>
+                android:hint="Name*"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/colorPrimary"/>
 
             <EditText
-                android:id="@+id/tv_mobile_no"
-                style="@style/EditTextStyle"
+                android:id="@+id/mobile_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_standard"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/spacing_standard"
-                android:backgroundTint="#EDECEC"
-                android:hint="Số điện thoại *"
+                android:ems="10"
                 android:inputType="number"
-                android:singleLine="true"
-                android:textColor="@color/textColorPrimary"></EditText>
+                android:layout_marginTop="8dp"
+                android:hint="Mobile No.*"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/colorPrimary"/>
 
             <EditText
-                android:id="@+id/tv_mobile_no_alternater"
-                style="@style/EditTextStyle"
+                android:id="@+id/alternate_mobile_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_standard"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/spacing_standard"
-                android:backgroundTint="#EDECEC"
-                android:hint="Số điện thoại thay thế"
+                android:ems="10"
                 android:inputType="number"
-                android:singleLine="true"
-                android:textColor="@color/textColorPrimary"></EditText>
+                android:layout_marginTop="8dp"
+                android:hint="Alternate mobile no. (optional)"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/colorPrimary"/>
 
             <Button
-                android:id="@+id/btnSave"
+                android:id="@+id/save_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_outline_button"
+                android:layout_height="60dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/slider_background"
                 android:backgroundTint="@color/colorPrimary"
-                android:layout_marginStart="@dimen/spacing_standard"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/spacing_standard"
-                android:textSize="@dimen/font_size_normal"
-                android:layout_marginBottom="@dimen/_14sdp"
-                android:textColor="@color/commonColorWhite"
-                android:text="SAVE">
-            </Button>
+                android:text="save"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,94 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--suppress ALL -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ProductDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+        android:id="@+id/appBarLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" >
-        </androidx.appcompat.widget.Toolbar>
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="411dp"
-        android:layout_height="692dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout00">
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
             android:orientation="vertical">
 
-            <include layout="@layout/product_images_layout"></include>
+            <include layout="@layout/product_images_layout" />
 
-            <include layout="@layout/reward_with_product_layout"></include>
+            <include layout="@layout/rewards_with_product_layout" />
 
-            <include layout="@layout/product_description_layout"></include>
+            <include layout="@layout/product_description_layout" />
 
-            <include layout="@layout/product_details_only_layout"></include>
+            <include layout="@layout/product_details_only_layout" />
 
-            <include layout="@layout/ratings_layout"></include>
+            <include layout="@layout/ratings_layout" />
+
         </LinearLayout>
-
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/linearLayout00"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:elevation="@dimen/_6sdp"
-        android:layout_marginBottom="@dimen/_6sdp"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@color/colorAccent"
+        android:elevation="8dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="10dp">
 
-            <ImageView
-                android:id="@+id/btn_add_to_cart"
-                android:layout_width="@dimen/_150sdp"
+        <LinearLayout
+            android:id="@+id/add_to_cart_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:paddingTop="@dimen/_9sdp"
-                android:layout_weight="1"
-                android:paddingBottom="@dimen/_9sdp"
+                android:text="THÊM VÀO GIỎ"
+                android:drawablePadding="8dp"
+                android:gravity="center"
                 android:background="@drawable/bg_add_cart"
-                android:src="@drawable/ic_shopping_cart_2">
-            </ImageView>
-
-            <Button
-                android:id="@+id/btn_buy_now"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textSize="@dimen/font_size_xlarge"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginStart="@dimen/_6sdp"
-                android:textColor="@color/white"
-                android:background="@drawable/bg_buy_now"
-                android:text="@string/lbl_buy_now">
-            </Button>
+                android:drawableTint="#485F70"
+                android:textColor="#485F70"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buy_now_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_add_cart"
+            android:stateListAnimator="@null"
+            android:text="MUA NGAY"
+            android:backgroundTint="@color/coupanPurple"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
 
     </LinearLayout>
 

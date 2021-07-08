@@ -6,9 +6,8 @@
             android:innerRadius="0dp"
             android:thickness="4dp"
             android:useLevel="false">
+            <solid android:color="#9f9f9f"/>
 
-            <solid android:color="#9f9f9f"></solid>
         </shape>
-
     </item>
 </layer-list>

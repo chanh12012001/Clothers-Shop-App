@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -15,24 +15,29 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#00BCD4"
             app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:popupTheme="@style/AppTheme.PopupOverlay" >
+            app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <TextView
-                android:id="@+id/tv_actionbar_logo1"
+                android:id="@+id/action_bar_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="m-Shop"
+                android:fontFamily="cursive"
+                android:text="m-Shop "
+                android:textSize="@dimen/font_size_xxlarge"
                 android:textStyle="bold"
-                android:textColor="@color/commonColorWhite"
-                android:textSize="30sp"
-                android:fontFamily="cursive">
+                android:textColor="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:ignore="MissingConstraints">
             </TextView>
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/content_main"></include>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
