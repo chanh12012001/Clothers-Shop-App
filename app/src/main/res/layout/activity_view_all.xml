@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewAllActivity">
-
+    tools:context="com.myclothershopapp.activities.ViewAllActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout7"
@@ -30,25 +29,27 @@
         android:id="@+id/recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/RecyclerViewBackground"
         android:visibility="gone"
-        android:background="@color/recyclerviewBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout7" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout7"
+        tools:visibility="gone" />
 
     <GridView
         android:id="@+id/grid_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/RecyclerViewBackground"
+        android:horizontalSpacing="1dp"
         android:numColumns="auto_fit"
         android:verticalSpacing="1dp"
-        android:horizontalSpacing="1dp"
         android:visibility="gone"
-        android:background="@color/recyclerviewBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout7" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout7"
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

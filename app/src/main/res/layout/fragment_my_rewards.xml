@@ -3,13 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.my_rewards.MyRewardsFragment">
+    tools:context="com.myclothershopapp.fragmment.MyRewardsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_rewards_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/reward_gradient_background">
-    </androidx.recyclerview.widget.RecyclerView>
-
+        android:background="@color/white"/>
 </FrameLayout>

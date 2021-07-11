@@ -5,28 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UpdateUserInfoActivity">
-
+    tools:context="com.myclothershopapp.activities.UpdateUserInfoActivity">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabIndicatorHeight="2dp"
-        app:tabIndicatorColor="@color/colorPrimary"
-        app:tabSelectedTextColor="@android:color/black">
+        app:tabSelectedTextColor="@android:color/black"
+        app:tabIndicatorColor="@color/colorPrimary">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="User Info"/>
-
-
+            android:text="Thông tin"/>
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password"/>
-
+            android:text="Mật khẩu"/>
 
     </com.google.android.material.tabs.TabLayout>
 
@@ -35,5 +31,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-
 </LinearLayout>
+
