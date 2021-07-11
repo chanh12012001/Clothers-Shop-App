@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".ProductDetailsActivity">
+    android:layout_height="match_parent"
+    tools:context="com.myclothershopapp.activities.ProductDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout2"
@@ -26,13 +26,12 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,21 +39,25 @@
             android:background="@color/colorAccent"
             android:orientation="vertical">
 
+
             <include layout="@layout/product_images_layout" />
 
-            <include layout="@layout/rewards_with_product_layout" />
+            <include layout="@layout/product_veriations" />
+
+            <include android:visibility="gone" layout="@layout/rewards_with_product_layout" />
 
             <include layout="@layout/product_description_layout" />
 
-            <include layout="@layout/product_details_only_layout" />
+            <include
+                layout="@layout/product_details_only_layout"
+                android:visibility="gone" />
 
             <include layout="@layout/ratings_layout" />
-
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@color/colorAccent"
@@ -97,13 +100,12 @@
             android:background="@drawable/bg_add_cart"
             android:stateListAnimator="@null"
             android:text="MUA NGAY"
-            android:backgroundTint="@color/coupanPurple"
+            android:backgroundTint="#3F51B5"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="bold"
             android:visibility="gone" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

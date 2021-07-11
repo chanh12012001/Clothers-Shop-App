@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DeliveryActivity">
-
+    tools:context="com.myclothershopapp.activities.DeliveryActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="not provided"
+        android:visibility="gone"
+        android:id="@+id/downloadurl"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout4"
@@ -24,31 +29,34 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/delivery_recyclerview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/recyclerviewBackground"
         app:layout_constraintBottom_toTopOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout4" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout4"
+        android:background="@color/RecyclerViewBackground"/>
+
 
     <include
         android:id="@+id/include"
         layout="@layout/shipping_details_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout5"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="55dp"
         android:background="@color/colorAccent"
         android:elevation="8dp"
         android:orientation="horizontal"
@@ -56,7 +64,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -67,7 +77,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tổng thanh toán:"
+                android:text="Tổng thanh toán"
                 android:textColor="#000000"
                 android:textStyle="bold" />
 
@@ -75,7 +85,7 @@
                 android:id="@+id/total_cart_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rs.49999/-"
+                android:text="49999"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -87,12 +97,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/bg_outline_button"
+            android:backgroundTint="#3F51B5"
             android:text="Tiếp tục"
-            android:backgroundTint="@color/coupanPurple"
+            android:background="@drawable/bg_outline_button"
             android:textColor="@color/colorAccent"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
+
 
     </LinearLayout>
 
@@ -106,42 +117,42 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
 
         <LinearLayout
-            android:id="@+id/linearLayout8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:id="@+id/linearLayout10"
+            android:layout_width="405dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="1dp"
+            android:background="#C862B923"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/colorPrimary"
-                android:src="@mipmap/order_confirmed"
-                app:civ_border_color="@color/colorAccent"
-                app:civ_border_width="7dp" />
+                android:layout_marginTop="30dp"
+                android:src="@mipmap/order_tick" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Thank You"
+                android:layout_marginTop="10dp"
+                android:text="Congratulation!"
                 android:textColor="@color/colorAccent"
-                android:textSize="32sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="382dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="Your order has been confirmed"
+                android:layout_margin="7dp"
+                android:text="Your order has been confirmed."
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
@@ -155,62 +166,72 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
-            android:text="Order ID 65413643264161"
+            android:text="Order ID Bshop/123456789"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout10" />
 
         <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/textView41"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="You will shortly receive your order confirmation message and email"
+            android:lineHeight="22sp"
+            android:text="You will shortly receive your order confirmation message and email. "
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="16sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/order_id" />
 
-
         <TextView
-            android:id="@+id/textView31"
+            android:id="@+id/textView42"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:text="Expected delivery between 4-6 days"
+            android:text="Expected delivery time 5-6 days OR will sent msg if anyChange."
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/unsuccessred"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/continue_shopping_btn"
+            app:layout_constraintBottom_toTopOf="@+id/textView43"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView29" />
+            app:layout_constraintTop_toBottomOf="@+id/textView41" />
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="64dp"
+            android:text="Continue shopping"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
             android:id="@+id/continue_shopping_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="16dp"
             android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:src="@mipmap/continue_shoping"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textView43"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@mipmap/conti_shoping" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

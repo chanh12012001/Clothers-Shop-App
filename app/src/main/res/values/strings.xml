@@ -1,63 +1,135 @@
 <resources>
     <string name="app_name">m-Shop</string>
-    <string name="text_todo">Todo</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="google_map_api_key" translatable="false">AIzaSyBS3PIf10AcRcbHB8S5ZDf1-Y6AYQHpEgE</string>
+
+    <string-array name="city_name">
+        <item>Jamnagar</item>
+    </string-array>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="message_no_locaion_permission_snackbar">Không có quyền truy cập</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="todo">TODO</string>
-
-    <string-array name="india_states">
-        <item>Andaman and Nicobar Islands</item>
-        <item>Andhra Pradesh</item>
-        <item>Arunachal Pradesh</item>
-        <item>Assam</item>
-        <item>Bihar</item>
-        <item>Chandigarh</item>
-        <item>Chhattisgarh</item>
-        <item>Dadra and Nagar Haveli</item>
-        <item>Daman and Diu</item>
-        <item>Delhi</item>
-        <item>Goa</item>
-        <item>Gujarat</item>
-        <item>Haryana</item>
-        <item>Himachal Pradesh</item>
-        <item>Jammu and Kashmir</item>
-        <item>Jharkhand</item>
-        <item>Karnataka</item>
-        <item>Kerala</item>
-        <item>Lakshadweep</item>
-        <item>Madhya Pradesh</item>
-        <item>Maharashtra</item>
-        <item>Manipur</item>
-        <item>Meghalaya</item>
-        <item>Mizoram</item>
-        <item>Nagaland</item>
-        <item>Orissa</item>
-        <item>Pondicherry</item>
-        <item>Punjab</item>
-        <item>Rajasthan</item>
-        <item>Sikkim</item>
-        <item>Tamil Nadu</item>
-        <item>Telangana</item>
-        <item>Tripura</item>
-        <item>Uttaranchal</item>
-        <item>Uttar Pradesh</item>
-        <item>West Bengal</item>
+    <string-array name="vietnam_states">
+    <item>AN GIANG</item>
+    <item>BA RIA -VUNG TAU</item>
+    <item>BAC GIANG</item>
+    <item>BAC KAN</item>
+    <item>BAC LIEU</item>
+    <item>BAC NINH</item>
+    <item>BEN TRE</item>
+    <item>BINH DINH</item>
+    <item>BINH DUONG</item>
+    <item>BINH PHUONG</item>
+    <item>BINH THUAN</item>
+    <item>CA MAU</item>
+    <item>CAN THO</item>
+    <item>CAO BANG</item>
+    <item>DA NANG</item>
+    <item>DAK LAK</item>
+    <item>DAK NONG</item>
+    <item>DIEN BIEN</item>
+    <item>DONG NAI</item>
+    <item>DONG NAI</item>
+    <item>GIA LAI</item>
+    <item>HA GIANG</item>
+    <item>HA NAM</item>
+    <item>HA NOI</item>
+    <item>HA TAY</item>
+    <item>HA TINH</item>
+    <item>HAI DUONG</item>
+    <item>HAI PHONG</item>
+    <item>HAU GIANG</item>
+    <item>HO CHI MINH CITY</item>
+    <item>HOA BINH</item>
+    <item>HUNG YEN</item>
+    <item>KHANH HOA</item>
+    <item>KIEN GIANG</item>
+    <item>KON TUM</item>
+    <item>LAI CHAU</item>
+    <item>LAM DONG</item>
+    <item>LANG SON </item>
+    <item>LAO CAI</item>
+    <item>LONG AN</item>
+    <item>NAM DINH</item>
+    <item>NGHE AN</item>
+    <item>NINH BINH</item>
+    <item>NINH THUAN</item>
+    <item>PHU THO</item>
+    <item>PHU YEN</item>
+    <item>QUANG BINH</item>
+    <item>QUANG NAM</item>
+    <item>QUANG NGAI</item>
+    <item>QUANG NINH</item>
+    <item>QUANG TRI</item>
+    <item>SOC TRANG</item>
+    <item>SON LA</item>
+    <item>TAY NINH</item>
+    <item>THAI BINH</item>
+    <item>THAI NGUYEN</item>
+    <item>THANH HOA</item>
+    <item>THUA THIEN - HUE</item>
+    <item>TIEN GIANG</item>
+    <item>TRA VINH</item>
+    <item>TUYEN QUANG</item>
+    <item>VINH LONG</item>
+    <item>VINH PHUC</item>
+    <item>YEN BAI</item>
+    <item>BINH CHANH</item>
+    <item>BINH TAN </item>
+    <item>BINH THANH</item>
+    <item>CAN GIO</item>
+    <item>CU CHI</item>
+    <item>GO VAP </item>
+    <item>HOC MON</item>
+    <item>NHA BE</item>
+    <item>PHU NHUAN</item>
+    <item>QUAN 1</item>
+    <item>QUAN 10</item>
+    <item>QUAN 11</item>
+    <item>QUAN 12</item>
+    <item>QUAN 2</item>
+    <item>QUAN 3</item>
+    <item>QUAN 4</item>
+    <item>QUAN 5 </item>
+    <item>QUAN 6</item>
+    <item>QUAN 7</item>
+    <item>QUAN 8</item>
+    <item>QUAN 9</item>
+    <item>TAN BINH</item>
+    <item>TAN PHU</item>
+    <item>THU DUC</item>
     </string-array>
+
+
+    <plurals name="bottom_sheet_title">
+        <item quantity="one">%d match found</item>
+        <item quantity="other">%d matches found</item>
+    </plurals>
+
+    <!-- Strings for camera settings. -->
+
+    <string name="pref_key_rear_camera_preview_size" translatable="false">rcpvs</string>
+    <string name="pref_key_rear_camera_picture_size" translatable="false">rcpts</string>
+
+    <!-- Strings for object detection settings. -->
+    <string name="pref_key_object_detector_enable_multiple_objects" translatable="false">odemo</string>
+    <string name="pref_key_object_detector_enable_classification" translatable="false">odec</string>
+
+    <!-- Strings for product search settings. -->
+    <string name="pref_key_enable_auto_search" translatable="false">pkeas</string>
+    <string name="pref_key_confirmation_time_in_manual_search" translatable="false">ctims</string>
+    <string name="pref_key_confirmation_time_in_auto_search" translatable="false">ctias</string>
+
+    <!-- Strings for barcode detection settings. -->
+    <string name="pref_key_barcode_reticle_width" translatable="false">barcode_brw</string>
+     <string name="pref_key_barcode_reticle_height" translatable="false">barcode_brh</string>
+    <string name="pref_key_enable_barcode_size_check" translatable="false">barcode_ebsc</string>
+   <string name="pref_key_minimum_barcode_width" translatable="false">barcode_mbw</string>
+    <string name="pref_key_delay_loading_barcode_result" translatable="false">barcode_dlbr</string>
+
 
 </resources>

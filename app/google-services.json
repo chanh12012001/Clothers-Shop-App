@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1048729347049-vg0ipcjv63ttjk344gr5g7l7ap6f8dtg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myclothershopapp",
+            "certificate_hash": "38a567722d11ce85c047f06a0850c966c60d4f83"
+          }
+        },
+        {
           "client_id": "1048729347049-thv213me2rkl1qj93l1nr4nv7dfum9pq.apps.googleusercontent.com",
           "client_type": 3
         }
